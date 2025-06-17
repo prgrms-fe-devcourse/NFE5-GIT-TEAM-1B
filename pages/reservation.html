@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/FitPlace/css/reservation.css" />
-
+    <script src="/FitPlace/js/reservation.js" defer></script>
     <title>어디있짐 예약</title>
   </head>
   <body>
@@ -171,15 +171,25 @@
                 <h3>현금영수증</h3>
                 <div>
                   <form class="cash-radio">
-                    <fieldset class="radio-wrap">
-                      <input type="radio" name="cash" value="none" checked />
+                    <fieldset class="radio-wrap" disabled>
+                      <input type="radio" name="cash" value="none" />
                       <label for="none">미발행</label>
-                      <input type="radio" name="cash" value="indivisual" />
+                      <input
+                        type="radio"
+                        name="cash"
+                        value="indivisual"
+                        disabled
+                      />
                       <label for="indivisual">소득공제용</label>
-                      <input type="radio" name="cash" value="company" />
+                      <input
+                        type="radio"
+                        name="cash"
+                        value="company"
+                        disabled
+                      />
                       <label for="company">지출증빙용</label>
                     </fieldset>
-                    <fieldset class="input-bar">
+                    <fieldset class="input-bar" disabled>
                       <input
                         type="text"
                         placeholder="현금영수증을 발행받을 번호를 적어주세요."

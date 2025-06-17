@@ -203,6 +203,10 @@ img {
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  .radio-wrap {
+    color: #888;
+  }
 }
 
 .coupon {

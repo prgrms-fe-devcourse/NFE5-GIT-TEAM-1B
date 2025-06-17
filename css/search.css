@@ -49,11 +49,28 @@ button { width: auto; overflow: visible; background: none; border: none; cursor:
 
 
 
+/* header css */
+.header {
+  height: 80px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  .hamburger-btn {
+    position: relative;
+    cursor: pointer;
+  }
+}
+
+
+
 /* map 커스텀 설정 */
 #map {
     width: 100%;
     /* max-width: 1440px; */
-    height: 98vh;
+    height: 91.1vh;
     position:relative;
     overflow: hidden;
 }

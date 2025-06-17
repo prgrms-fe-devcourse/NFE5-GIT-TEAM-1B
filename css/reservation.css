@@ -138,6 +138,14 @@ img {
     border-radius: 8px;
     width: 100px;
     cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .apply-coupon:hover {
+    background-color: #ff6f0f;
+  }
+  .apply-coupon:active {
+    background-color: #ff6600;
   }
 }
 
@@ -169,6 +177,15 @@ img {
     font-size: 24px;
     color: #fff;
     cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .confirm-btn:hover {
+    background-color: #ff6f0f;
+  }
+
+  .confirm-btn:active {
+    background-color: #ff6600;
   }
 }
 
@@ -235,4 +252,116 @@ img {
   display: flex;
   justify-content: space-between;
   padding: 32px 48px;
+}
+
+.complete {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 24px;
+  font-size: 80px;
+  font-weight: 600;
+  span {
+    color: #ff8000;
+  }
+}
+
+.bills {
+  background-color: #f9f9f9;
+  margin: 50px auto;
+  border-top: 3px solid #222;
+  border-bottom: 3px solid #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 664px;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  padding: 40px;
+  border-bottom: 3px solid #222;
+  width: 664px;
+  gap: 20px;
+
+  .place {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .hour {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .people {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  width: 664px;
+  gap: 20px;
+  padding: 40px;
+
+  .book-number {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .my-money {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .out-money {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .total-payment {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 36px;
+    font-weight: 600;
+  }
+}
+
+.backhome {
+  display: flex;
+  justify-content: center;
+
+  .home-btn {
+    background-color: #ff8000;
+    color: #fff;
+    border-radius: 8px;
+    width: 663px;
+    height: 106px;
+    font-size: 48px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .home-btn:hover {
+    background-color: #ff6f0f;
+  }
+
+  .home-btn:active {
+    background-color: #ff6600;
+  }
 }

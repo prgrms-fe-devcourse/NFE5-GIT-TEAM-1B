@@ -8,7 +8,7 @@
     <title>어디있짐 예약</title>
   </head>
   <body>
-    <div class="modal" hidden>
+    <div class="modal">
       <div class="couponbg">
         <div class="card">
           <div class="coupon-header">
@@ -128,9 +128,16 @@
             </a>
           </h1>
           <div class="hamburger-btn">
-            <span></span>
-            <span></span>
-            <span></span>
+            <svg
+              width="55"
+              height="55"
+              viewBox="0 0 55 55"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="5" y="10" width="45" height="6" fill="#888" rx="2" />
+              <rect x="5" y="24.5" width="45" height="6" fill="#888" rx="2" />
+              <rect x="5" y="39" width="45" height="6" fill="#888" rx="2" />
+            </svg>
           </div>
         </div>
       </header>
@@ -174,25 +181,15 @@
                     <fieldset class="radio-wrap" disabled>
                       <input type="radio" name="cash" value="none" />
                       <label for="none">미발행</label>
-                      <input
-                        type="radio"
-                        name="cash"
-                        value="indivisual"
-                        disabled
-                      />
+                      <input type="radio" name="cash" value="indivisual" />
                       <label for="indivisual">소득공제용</label>
-                      <input
-                        type="radio"
-                        name="cash"
-                        value="company"
-                        disabled
-                      />
+                      <input type="radio" name="cash" value="company" />
                       <label for="company">지출증빙용</label>
                     </fieldset>
                     <fieldset class="input-bar" disabled>
                       <input
                         type="text"
-                        placeholder="현금영수증을 발행받을 번호를 적어주세요."
+                        placeholder="예시 : 010-0000-0000 / 123-45-67890"
                         class="cash-number"
                       />
                     </fieldset>
@@ -201,6 +198,7 @@
               </div>
               <div class="coupon">
                 <h3>쿠폰</h3>
+                <ul class="applied-coupon"></ul>
                 <button type="button" class="apply-coupon">
                   쿠폰 적용하기
                 </button>
@@ -209,15 +207,15 @@
                 <form>
                   <fieldset class="agree-box">
                     <div class="agree-check_box">
-                      <input type="checkbox" />
+                      <input type="checkbox" class="agree" />
                       <label for="" class="agreeall">전체동의하기</label>
                     </div>
                     <div class="agree-check_box">
-                      <input type="checkbox" />
+                      <input type="checkbox" class="agree" />
                       <label for="">위 사항을 모두 확인하였습니다</label>
                     </div>
                     <div class="agree-check_box">
-                      <input type="checkbox" />
+                      <input type="checkbox" class="agree" />
                       <label for=""
                         >(선택) 마케팅 및 알림 메시지를 허용하시겠습니까?</label
                       >

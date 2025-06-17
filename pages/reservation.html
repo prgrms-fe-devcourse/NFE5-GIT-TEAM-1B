@@ -4,9 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/FitPlace/css/reservation.css" />
+
     <title>어디있짐 예약</title>
   </head>
   <body>
+    <div class="modal" hidden>
+      <div class="couponbg">
+        <div class="card">
+          <div class="coupon-header">
+            <div class="arrow">
+              <svg
+                width="80"
+                height="80"
+                viewBox="0 0 80 80"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M28 37.0009C26.3431 37.0009 25 38.3441 25 40.0009C25 41.6578 26.3431 43.0009 28 43.0009L28 37.0009ZM64.0003 43.0009C65.6571 43.0009 67.0003 41.6578 67.0003 40.0009C67.0003 38.3441 65.6571 37.0009 64.0003 37.0009L64.0003 43.0009ZM28 40.0009L28 43.0009L64.0003 43.0009L64.0003 40.0009L64.0003 37.0009L28 37.0009L28 40.0009Z"
+                  fill="#222222"
+                />
+                <path
+                  d="M28 32.242L28 47.7567C28 49.3224 26.1071 50.1065 25 48.9994L18.1213 42.1207C16.9497 40.9491 16.9497 39.0496 18.1213 37.8781L25 30.9994C26.1071 29.8923 28 30.6764 28 32.242Z"
+                  fill="#222222"
+                  stroke="#222222"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h4>쿠폰함</h4>
+          </div>
+
+          <div class="discount-coupon">
+            <span class="coupon-color"></span>
+            <div class="coupon-detail">
+              <p>회원가입 축하쿠폰</p>
+              <p class="discount"><span>10%</span>할인</p>
+              <p>사용유효기간 : 2026-06-17까지</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="layout">
       <header class="header">
         <div class="header-inner">
@@ -93,6 +134,7 @@
           </div>
         </div>
       </header>
+
       <main class="content-wrap">
         <article class="check-resevation">
           <div>

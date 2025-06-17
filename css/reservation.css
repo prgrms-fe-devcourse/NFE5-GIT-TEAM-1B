@@ -11,6 +11,11 @@ span {
   padding: 0;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 button {
   background-color: transparent;
   outline: none;
@@ -23,11 +28,85 @@ img {
   object-fit: cover;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.modal {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .couponbg {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    width: 560px;
+    height: 720px;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 20px;
+
+    h4 {
+      font-size: 36px;
+      font-weight: 600;
+    }
+
+    .coupon-header {
+      display: flex;
+      justify-content: space-between;
+
+      .arrow {
+        cursor: pointer;
+      }
+    }
+
+    .discount-coupon {
+      height: 198px;
+      width: 518px;
+      border-radius: 8px;
+      border: 0.1px solid #22222214;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      padding: 24px 0;
+      padding-left: 43px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .coupon-color {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 80px;
+      height: 100%;
+      background-color: #ff8000;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .coupon-detail {
+      gap: 8px;
+      font-size: 18px;
+
+      .discount {
+        display: flex;
+        gap: 8px;
+        align-items: flex-end;
+        font-size: 32px;
+        margin: 0;
+      }
+
+      p > span {
+        font-weight: 700;
+        font-size: 72px;
+      }
+    }
+  }
 }
+
 .layout {
   margin: 0 220px;
 }

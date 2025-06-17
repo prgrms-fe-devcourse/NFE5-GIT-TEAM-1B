@@ -1,1 +1,61 @@
-//맵
+<!--
+맵 
+### 목적: 위치 기반으로 다양한 체육 시설을 탐색 **구성 요소 & 기능** -
+지도 + 리스트 레이아웃 (지도 좌측, 리스트 우측) - 마커 클릭 시 툴팁로 간략 정보
+(이름, 별점, 가격, 사진) 표시 - 종목 필터 (풋살, 배드민턴, 탁구, 헬스 등) - 가격
+범위 슬라이더 - 현재 위치로 이동 버튼 - 예약 가능 여부 체크박스 - 혼잡도 표시
+(AI 분석 or 사용자 기반) - 리스트 항목 클릭 시 상세 페이지 이동
+-->
+
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>지도</title>
+    <!-- api  -->
+    <script
+      defer
+      type="text/javascript"
+      src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=9aec53f5d3070b2bdd8f3ab6e47c9854&autoload=false"
+    ></script>
+    <!-- library -->
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9aec53f5d3070b2bdd8f3ab6e47c9854&libraries=services,clusterer,drawing"
+    ></script>
+    <script defer src="/js/search.js"></script>
+    <link rel="stylesheet" href="/css/search.css" />
+  </head>
+  <body>
+    <!-- api 맵 -->
+    <div class="map_wrap">
+      <div id="map"></div>
+
+      <!-- api 리스트 -->
+      <div id="menu_wrap" class="bg_white">
+        <div class="option">
+          <div>
+            <form onsubmit="searchPlaces(); return false;">
+              <!-- 키워드  -->
+              <input type="text" value="배드민턴" id="keyword" size="15" placeholder="키워드 입력"/>
+              <button type="submit" id="search_btn">검색하기</button>
+            </form>
+          </div>
+        </div>
+        <hr />
+        <ul id="placesList"></ul>
+        <div id="pagination"></div>
+      </div>
+    </div>
+    
+    <button id="myLocationBtn">내 위치로 이동</button>
+  </body>
+</html>
+<!-- 다짐 사이트 -->
+<!-- https://www.da-gym.co.kr/location-setting -->
+<!-- 
+  3. 헤더 
+  5. 툴팁 (인포윈도우) 수정하기 글자넘침
+
+-->

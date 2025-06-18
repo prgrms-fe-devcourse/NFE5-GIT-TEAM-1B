@@ -1,1 +1,308 @@
-//예약페이지
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/FitPlace/css/reset.css" />
+    <link rel="stylesheet" href="/FitPlace/css/reservation.css" />
+    <script src="/FitPlace/js/reservation.js" defer></script>
+    <title>어디있짐 예약</title>
+  </head>
+  <body>
+    <div class="modal">
+      <div class="couponbg">
+        <div class="card">
+          <div class="coupon-header">
+            <div class="arrow">
+              <svg
+                width="80"
+                height="80"
+                viewBox="0 0 80 80"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M28 37.0009C26.3431 37.0009 25 38.3441 25 40.0009C25 41.6578 26.3431 43.0009 28 43.0009L28 37.0009ZM64.0003 43.0009C65.6571 43.0009 67.0003 41.6578 67.0003 40.0009C67.0003 38.3441 65.6571 37.0009 64.0003 37.0009L64.0003 43.0009ZM28 40.0009L28 43.0009L64.0003 43.0009L64.0003 40.0009L64.0003 37.0009L28 37.0009L28 40.0009Z"
+                  fill="#222222"
+                />
+                <path
+                  d="M28 32.242L28 47.7567C28 49.3224 26.1071 50.1065 25 48.9994L18.1213 42.1207C16.9497 40.9491 16.9497 39.0496 18.1213 37.8781L25 30.9994C26.1071 29.8923 28 30.6764 28 32.242Z"
+                  fill="#222222"
+                  stroke="#222222"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h4>쿠폰함</h4>
+          </div>
+
+          <div class="discount-coupon">
+            <span class="coupon-color"></span>
+            <div class="coupon-detail">
+              <p>회원가입 축하쿠폰</p>
+              <p class="discount"><span>10%</span>할인</p>
+              <p>사용유효기간 : 2026-06-17까지</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="layout">
+      <header class="header">
+        <div class="header-inner">
+          <h1 class="logo">
+            <a href="#">
+              <svg
+                width="61"
+                height="55"
+                viewBox="0 0 61 55"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="54.3406"
+                  y="23.6113"
+                  width="3.31707"
+                  height="10.1463"
+                  rx="1.65854"
+                  fill="#FF8000"
+                />
+                <rect
+                  width="3.31707"
+                  height="10.1463"
+                  rx="1.65854"
+                  transform="matrix(-1 0 0 1 7.21899 23.6113)"
+                  fill="#FF7F00"
+                />
+                <path
+                  d="M30.78 0C38.5655 0.000333626 44.8775 6.33308 44.8777 14.1455C44.8776 17.5849 43.6527 20.7376 41.6189 23.1895C39.9772 25.6812 37.8067 28.9594 35.906 31.7773C34.8102 33.4019 33.8024 34.8771 33.0398 35.9619C32.659 36.5036 32.3359 36.9523 32.0925 37.2744C31.9715 37.4346 31.8663 37.5693 31.781 37.6699C31.7387 37.7198 31.6967 37.7677 31.657 37.8076C31.6434 37.8213 31.6191 37.8449 31.5876 37.8711L31.4734 37.9492C30.8257 38.2903 30.1808 38.1048 29.8962 37.9482V37.9492C29.8951 37.9486 29.8935 37.947 29.8923 37.9463C29.8884 37.9441 29.8835 37.9426 29.8796 37.9404V37.9385C29.8054 37.8962 29.7458 37.8433 29.7146 37.8135C29.6723 37.7729 29.6279 37.7248 29.5837 37.6748C29.4947 37.5739 29.3862 37.4403 29.2644 37.2832C29.0196 36.9675 28.6999 36.5311 28.3259 36.0068C27.5763 34.9561 26.5948 33.5326 25.532 31.9678C23.4054 28.8368 20.9415 25.1262 19.322 22.665L19.282 22.6035L19.2615 22.5332L19.1404 22.1289C17.5898 19.8568 16.6825 17.1072 16.6824 14.1455C16.6826 6.33288 22.9943 0 30.78 0ZM30.78 6.14648C26.4844 6.14648 23.0017 9.64164 23.0017 13.9521C23.0019 18.2625 26.4845 21.7568 30.78 21.7568C35.0755 21.7568 38.5581 18.2624 38.5583 13.9521C38.5583 9.64167 35.0756 6.14654 30.78 6.14648Z"
+                  fill="#218BE7"
+                />
+                <rect
+                  x="13.365"
+                  y="25.9531"
+                  width="34.2439"
+                  height="4.29268"
+                  fill="#228BEA"
+                />
+                <rect
+                  width="34.2439"
+                  height="4.29268"
+                  transform="matrix(-1 0 0 1 48.1946 25.9531)"
+                  fill="#228BEA"
+                />
+                <rect
+                  x="48.4871"
+                  y="19.3193"
+                  width="5.56097"
+                  height="17.2683"
+                  rx="2.78049"
+                  fill="#FF8000"
+                />
+                <rect
+                  width="5.56097"
+                  height="17.2683"
+                  rx="2.78049"
+                  transform="matrix(-1 0 0 1 13.0725 19.3193)"
+                  fill="#FF7F00"
+                />
+                <path
+                  d="M57.172 40.395V42.4724H54.4403C54.6285 43.9036 55.5363 45.3594 57.859 46.0382L56.5177 48.0829C54.8902 47.6167 53.7942 46.6598 53.1318 45.4494C52.4366 46.7743 51.2834 47.8294 49.5495 48.3773L48.2083 46.3C50.58 45.5884 51.5288 44.01 51.7251 42.4724H48.8953V40.395H57.172ZM60.9996 39.6426V48.3119H58.3661V39.6426H60.9996ZM60.9996 48.8844V54.6094H50.6782V48.8844H60.9996ZM53.2626 50.929V52.5157H58.4315V50.929H53.2626Z"
+                  fill="#00514D"
+                />
+                <path
+                  d="M37.8474 49.048C37.8474 50.1766 38.24 51.3298 39.3196 52.1395C40.4073 51.2971 40.8408 50.1357 40.8572 49.048V48.7208H43.4253V49.048C43.4253 50.6346 44.0632 52.025 46.1242 52.6302L44.8647 54.5113C43.4661 54.0615 42.5747 53.2272 42.0512 52.1395C41.5442 53.2436 40.6854 54.1678 39.3687 54.6585C37.9865 54.176 37.1195 53.2763 36.6207 52.1886C36.0809 53.2354 35.2058 54.0615 33.8726 54.5113L32.5968 52.6302C34.6251 51.9596 35.2794 50.5201 35.2794 49.048V48.7208H37.8474V49.048ZM44.8483 39.6426V48.1156H42.2148V39.6426H44.8483ZM36.4898 40.3296C38.8779 40.3296 40.7263 41.8672 40.7263 44.0427C40.7263 46.1527 38.8779 47.7067 36.4898 47.7067C34.0853 47.7067 32.2369 46.1527 32.2533 44.0427C32.2369 41.8672 34.0853 40.3296 36.4898 40.3296ZM36.4898 42.5214C35.492 42.5214 34.805 43.0285 34.805 44.0427C34.805 45.0077 35.492 45.5475 36.4898 45.5312C37.4385 45.5475 38.1255 45.0077 38.1255 44.0427C38.1255 43.0285 37.4385 42.5214 36.4898 42.5214Z"
+                  fill="#218BE7"
+                />
+                <path
+                  d="M28.7135 39.6113V54.7908H26.0636V39.6113H28.7135ZM24.2643 40.8872V42.9973H19.4389V49.0821C21.9661 49.074 23.4792 49.0167 25.1639 48.7059L25.3766 50.8324C23.4792 51.2249 21.5817 51.2904 18.1794 51.274H16.8218V40.8872H24.2643Z"
+                  fill="#228BEA"
+                />
+                <path
+                  d="M4.02387 40.6255C6.04399 40.6091 7.58156 42.2367 7.9496 44.8783H10.0924V39.6113H12.6932V54.7908H10.0924V46.9721H7.98232C7.70424 49.8264 6.11759 51.5684 4.02387 51.5684C1.68479 51.5684 0 49.4584 0 46.0724C0 42.7356 1.68479 40.6091 4.02387 40.6255ZM4.02387 42.9973C3.12423 42.9809 2.50265 43.9787 2.51901 46.0724C2.50265 48.1989 3.12423 49.1639 4.02387 49.1639C4.93988 49.1639 5.52873 48.1989 5.52873 46.0724C5.52873 43.9787 4.93988 42.9809 4.02387 42.9973Z"
+                  fill="#228BEA"
+                />
+                <circle cx="30.8283" cy="13.9533" r="3.80487" fill="#218BE7" />
+              </svg>
+            </a>
+          </h1>
+          <div class="hamburger-btn">
+            <svg
+              width="55"
+              height="55"
+              viewBox="0 0 55 55"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="5" y="10" width="45" height="6" fill="#888" rx="2" />
+              <rect x="5" y="24.5" width="45" height="6" fill="#888" rx="2" />
+              <rect x="5" y="39" width="45" height="6" fill="#888" rx="2" />
+            </svg>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-wrap">
+        <article class="check-resevation">
+          <div>
+            <h1>예약을 확인해 주세요.</h1>
+            <div class="card payment-wrap">
+              <div class="payment">
+                <h3>결제수단</h3>
+                <form class="how-to-payment">
+                  <fieldset class="radio-wrap">
+                    <div class="way-to-payment">
+                      <input type="radio" value="simple" name="payment" />
+                      <label for="simple">간편결제</label>
+                    </div>
+                    <div class="way-to-payment">
+                      <input type="radio" id="kakao" name="payment" />
+                      <label for="kakao">카카오페이</label>
+                    </div>
+                    <div class="way-to-payment">
+                      <input type="radio" id="toss" name="payment" />
+                      <label for="toss">토스페이</label>
+                    </div>
+                    <div class="way-to-payment">
+                      <input type="radio" id="naver" name="payment" />
+                      <label for="naver">네이버페이</label>
+                    </div>
+                    <div class="way-to-payment">
+                      <input type="radio" id="insert" name="payment" />
+                      <label for="insert">무통장입금</label>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+              <div class="cash-bills">
+                <h3>현금영수증</h3>
+                <div>
+                  <form class="cash-radio">
+                    <fieldset class="radio-wrap" disabled>
+                      <input type="radio" name="cash" value="none" />
+                      <label for="none">미발행</label>
+                      <input type="radio" name="cash" value="indivisual" />
+                      <label for="indivisual">소득공제용</label>
+                      <input type="radio" name="cash" value="company" />
+                      <label for="company">지출증빙용</label>
+                    </fieldset>
+                    <fieldset class="input-bar" disabled>
+                      <input
+                        type="text"
+                        placeholder="예시 : 010-0000-0000 / 123-45-67890"
+                        class="cash-number"
+                      />
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+              <div class="coupon">
+                <h3>쿠폰</h3>
+                <ul class="applied-coupon"></ul>
+                <button type="button" class="apply-coupon">
+                  쿠폰 적용하기
+                </button>
+              </div>
+              <div class="agree-wrap">
+                <form>
+                  <fieldset class="agree-box">
+                    <div class="agree-check_box">
+                      <input type="checkbox" class="agree" />
+                      <label for="" class="agreeall">전체동의하기</label>
+                    </div>
+                    <div class="agree-check_box">
+                      <input type="checkbox" class="agree" />
+                      <label for="">위 사항을 모두 확인하였습니다</label>
+                    </div>
+                    <div class="agree-check_box">
+                      <input type="checkbox" class="agree" />
+                      <label for=""
+                        >(선택) 마케팅 및 알림 메시지를 허용하시겠습니까?</label
+                      >
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+              <div class="confirm-btn_wrap">
+                <button class="confirm-btn">결제 진행</button>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="gym-info">
+          <div class="card">
+            <div class="gym-img">
+              <img src="/FitPlace/assets/images/실내.webp" alt="더미데이터" />
+            </div>
+            <div class="gym-detail">
+              <div class="gym-name">
+                <p>고양 실내 체육관</p>
+                <div class="gym-location">
+                  <svg
+                    width="19"
+                    height="19"
+                    viewBox="0 0 19 19"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.9556 7.29297C13.9556 4.80769 11.9408 2.79297 9.45557 2.79297C6.97029 2.79297 4.95557 4.80769 4.95557 7.29297V7.56402C4.95557 8.55841 5.26627 9.52796 5.84425 10.3371L9.44668 15.3805C9.45103 15.3866 9.4601 15.3866 9.46446 15.3805L13.0669 10.3371C13.6449 9.52796 13.9556 8.55841 13.9556 7.56402V7.29297Z"
+                      stroke="#222222"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M8.5761 5.49177C9.13193 5.2241 9.7794 5.2241 10.3352 5.49177C10.8911 5.75944 11.2947 6.26565 11.432 6.86711C11.5693 7.46856 11.4252 8.09979 11.0406 8.58212C10.6559 9.06445 10.0726 9.34538 9.45567 9.34538C8.83874 9.34538 8.2554 9.06445 7.87075 8.58212C7.48611 8.09979 7.34203 7.46856 7.47931 6.86711C7.61659 6.26565 8.02028 5.75944 8.5761 5.49177Z"
+                      stroke="#222222"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+
+                  <p>경기도 고양시</p>
+                </div>
+              </div>
+              <div class="gym-rate">
+                <svg
+                  width="20"
+                  height="17"
+                  viewBox="0 0 20 17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.9834 0.644531L12.1163 6.86338H19.0184L13.4345 10.7068L15.5674 16.9257L9.9834 13.0822L4.39944 16.9257L6.53232 10.7068L0.948361 6.86338H7.85052L9.9834 0.644531Z"
+                    fill="#FF8000"
+                  />
+                </svg>
+                <span>4.5</span>
+              </div>
+            </div>
+            <hr />
+            <div class="book-detail">
+              <h3>예약상세</h3>
+              <div class="book-date">
+                <p>예약일</p>
+                <p>2025-07-07 (월)</p>
+              </div>
+              <div class="book-duringtime">
+                <p>이용시간</p>
+                <p>13 : 00 ~ 15 : 00</p>
+              </div>
+              <div class="use-people">
+                <p>인원</p>
+                <p><span>n</span>명</p>
+              </div>
+            </div>
+            <hr />
+            <div class="pay-info">
+              <h3>결제정보</h3>
+              <h3><span>n</span>원</h3>
+            </div>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>

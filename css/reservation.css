@@ -1,0 +1,415 @@
+.modal {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in;
+  opacity: 0;
+  pointer-events: none;
+
+  .couponbg {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    width: 560px;
+    height: 720px;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 20px;
+
+    h4 {
+      font-size: 36px;
+      font-weight: 600;
+    }
+
+    .coupon-header {
+      display: flex;
+      justify-content: space-between;
+
+      .arrow {
+        cursor: pointer;
+      }
+    }
+
+    .discount-coupon {
+      height: 198px;
+      width: 518px;
+      border-radius: 8px;
+      border: 0.1px solid #22222214;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      padding: 24px 0;
+      padding-left: 43px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .coupon-color {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 80px;
+      height: 100%;
+      background-color: #ff8000;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .coupon-detail {
+      gap: 8px;
+      font-size: 18px;
+
+      .discount {
+        display: flex;
+        gap: 8px;
+        align-items: flex-end;
+        font-size: 32px;
+        margin: 0;
+      }
+
+      p > span {
+        font-weight: 700;
+        font-size: 72px;
+      }
+    }
+  }
+}
+
+.layout {
+  margin: 0 220px;
+}
+
+.header {
+  height: 80px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  .hamburger-btn {
+    position: relative;
+    cursor: pointer;
+  }
+}
+.content-wrap {
+  display: flex;
+  width: 100%;
+  gap: 40px;
+}
+
+.check-resevation {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+
+  .card {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 80px;
+  }
+}
+
+.payment-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 58px;
+
+  .payment {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .radio-wrap {
+    border: 0;
+    display: flex;
+    gap: 8px;
+  }
+}
+
+.input-bar {
+  border: 0;
+}
+
+.cash-bills {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .cash-number {
+    width: 446px;
+    padding: 10px;
+  }
+}
+
+.cash-radio {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .radio-wrap {
+    color: #888;
+  }
+}
+
+.coupon {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .apply-coupon {
+    padding: 10px;
+    background-color: #ff8000;
+    color: #fff;
+    border-radius: 8px;
+    width: 100px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .apply-coupon:hover {
+    background-color: #ff6f0f;
+  }
+  .apply-coupon:active {
+    background-color: #ff6600;
+  }
+
+  .cancle-btn {
+    color: #ff6600;
+    cursor: pointer;
+  }
+}
+
+.agree-box {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .agreeall {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .agree-check_box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .agree-check_box:nth-child(1) > .agree {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.confirm-btn_wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  .confirm-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 192px;
+    height: 64px;
+    border-radius: 8px;
+    background-color: #888;
+    font-size: 24px;
+    color: #fff;
+    cursor: not-allowed;
+    transition: all 0.3s;
+  }
+
+  .active {
+    background-color: #ff8000;
+    cursor: pointer;
+  }
+  .active:hover {
+    background-color: #ff6f0f;
+  }
+  .active:active {
+    background-color: #ff6600;
+  }
+}
+
+.gym-info {
+  width: 50%;
+
+  .card {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.gym-img {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  overflow: hidden;
+  height: 320px;
+}
+
+.gym-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 48px;
+  .gym-name {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .gym-location {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+.gym-rate > span {
+  font-size: 18px;
+}
+
+.book-detail {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 48px;
+  gap: 28px;
+
+  .book-date {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .book-duringtime {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .use-people {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.pay-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 48px;
+}
+
+.complete {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 24px;
+  font-size: 80px;
+  font-weight: 600;
+  span {
+    color: #ff8000;
+  }
+}
+
+.bills {
+  background-color: #f9f9f9;
+  margin: 50px auto;
+  border-top: 3px solid #222;
+  border-bottom: 3px solid #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 664px;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  padding: 40px;
+  border-bottom: 3px solid #222;
+  width: 664px;
+  gap: 20px;
+
+  .place {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .hour {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .people {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  width: 664px;
+  gap: 20px;
+  padding: 40px;
+
+  .book-number {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .my-money {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .out-money {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .total-payment {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 36px;
+    font-weight: 600;
+  }
+}
+
+.backhome {
+  display: flex;
+  justify-content: center;
+
+  .home-btn {
+    background-color: #ff8000;
+    color: #fff;
+    border-radius: 8px;
+    width: 663px;
+    height: 106px;
+    font-size: 48px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .home-btn:hover {
+    background-color: #ff6f0f;
+  }
+
+  .home-btn:active {
+    background-color: #ff6600;
+  }
+}

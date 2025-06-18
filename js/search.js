@@ -1,6 +1,6 @@
 let markers = [];// 마커 담을 배열
-let mapContainer = document.getElementById('map'), // 지도 표시할 div 
-    mapOption = {
+let mapContainer = document.querySelector('#map'); // 지도 표시할 div 
+let mapOption = {
         center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도 중심좌표
         level: 3 // 지도 확대 레벨
     };  
@@ -13,9 +13,9 @@ let infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 
 
-// 키워드 검색
+// 키워드로 장소 검색
 function searchPlaces() {
-    let keyword = document.getElementById('keyword').value;
+    let keyword = document.querySelector('#keyword').value;
 
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
         alert('키워드를 입력해주세요!');
@@ -31,7 +31,6 @@ function searchPlaces() {
 function placesSearchCB(data, status, pagination) {
     
     if (status === kakao.maps.services.Status.OK) {
-        console.log("data =========== ", data);
         // 카테고리에 "스포츠"가 포함된 항목만 필터링
         const filtered = data.filter(place =>
             place.category_name && place.category_name.includes('스포츠')
@@ -59,15 +58,13 @@ function placesSearchCB(data, status, pagination) {
 
 // 검색 결과 목록과 마커를 표출하는 함수
 function displayPlaces(places) {
-
-    let listEl = document.getElementById('placesList'), 
-        menuEl = document.getElementById('menu_wrap'),
-        fragment = document.createDocumentFragment(), 
-        bounds = new kakao.maps.LatLngBounds(), 
-        listStr = '';
+    let listEl = document.querySelector('#placesList');
+    let menuEl = document.querySelector('#menu_wrap');
+    let fragment = document.createDocumentFragment();
+    let bounds = new kakao.maps.LatLngBounds();
     
     // 검색 결과 목록 전체 제거
-    removeAllChildNods(listEl);
+    removeAllChildNodes(listEl);
 
     // 지도에 표시되고 있는 마커 전체 제거
     removeMarker();
@@ -75,9 +72,9 @@ function displayPlaces(places) {
     for ( let i=0; i<places.length; i++ ) {
 
         // 마커 생성 후 지도에 표시
-        let placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
-            marker = addMarker(placePosition, i), // 마커 생성, 지도 위에 마커 표시
-            itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element 생성
+        let placePosition = new kakao.maps.LatLng(places[i].y, places[i].x);
+        let marker = addMarker(placePosition, i); // 마커 생성, 지도 위에 마커 표시
+        let itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element 생성
 
         // 검색된 장소의 위치를 기준으로 지도 범위를 재설정하기위해 LatLngBounds 객체에 좌표 추가
         bounds.extend(placePosition);
@@ -174,9 +171,9 @@ function removeMarker() {
 
 // 검색결과 목록 하단에 페이지네이션 표시
 function displayPagination(pagination) {
-    let paginationEl = document.getElementById('pagination'),
-        fragment = document.createDocumentFragment(),
-        i; 
+    let paginationEl = document.querySelector('#pagination');
+    let fragment = document.createDocumentFragment();
+    let i;
 
     // 기존 페이지네이션 삭제
     while (paginationEl.hasChildNodes()) {
@@ -216,7 +213,7 @@ function displayInfowindow(marker, title) {
 
 
  // 검색결과 목록의 자식 Element 제거 (목록 전체 제거)
-function removeAllChildNods(el) {   
+function removeAllChildNodes(el) {   
     while (el.hasChildNodes()) {
         el.removeChild (el.lastChild);
     }
@@ -224,14 +221,14 @@ function removeAllChildNods(el) {
 
 
 // 내위치로 지도 이동
-document.getElementById('myLocationBtn').addEventListener('click', function () {
+document.querySelector('#myLocationBtn').addEventListener('click', function () {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             const lat = position.coords.latitude;
             const lng = position.coords.longitude;
 
             const locPosition = new kakao.maps.LatLng(lat, lng);
-            const message = '<div style="padding:5px;">📍 현재 위치</div>';
+            const message = '<div style="padding:5px;">현재 위치</div>';
 
             displayMyLocation(locPosition, message);
         }, function (error) {
@@ -247,11 +244,11 @@ document.getElementById('myLocationBtn').addEventListener('click', function () {
 // 내위치 표시 함수
 function displayMyLocation(locPosition) {
   // 기존 마커나 오버레이 제거하려면 여기에 저장해둬야 함 (원하면 추가 가능)
-  
+
   // 커스텀 HTML 오버레이로 깜빡이는 빨간 원 생성
   const content = '<div class="blinking-marker"></div>';
 
-  const customOverlay = new kakao.maps.CustomOverlay({
+  new kakao.maps.CustomOverlay({
     position: locPosition,
     content: content,
     map: map
@@ -260,7 +257,3 @@ function displayMyLocation(locPosition) {
   // 해당 위치를 화면 정가운데 오도록 지도 이동
   map.panTo(locPosition);
 }
-
-
-// 키워드로 장소 검색
-searchPlaces();

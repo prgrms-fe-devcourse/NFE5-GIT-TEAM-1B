@@ -1,1 +1,134 @@
-//상세페이지
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시설 상세 정보</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+</head>
+<body>
+    <main class="facility-detail">
+
+        <section class="facility-header">
+            <div class="facility-basic-info">
+                <h1 class="facility-name">스포츠 복합 센터</h1>
+                <div class="rating-review">
+                    <div class="stars">
+                        <span class="star-rating">4.5</span>
+                        <div class="star-icons">★★★★☆</div>
+                    </div>
+                    <span class="review-count">(리뷰 123개)</span>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="image-slider swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800" alt="체육관 내부"></div>
+                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800" alt="농구장"></div>
+                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1576941089067-2de3c901e126?w=800" alt="수영장"></div>
+                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1598136490941-30d885318abd?w=800" alt="헬스장"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </section>
+
+        <section class="pricing-section">
+            <h2>이용 요금</h2>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>시간당 이용</h3>
+                    <p class="price">30,000원 / 시간</p>
+                    <ul class="price-details">
+                        <li>평일 주간 기준</li>
+                        <li>최소 1시간부터</li>
+                        <li>장비 대여 포함</li>
+                    </ul>
+                </div>
+                <div class="pricing-card">
+                    <h3>회원권</h3>
+                    <p class="price">300,000원 / 월</p>
+                    <ul class="price-details">
+                        <li>무제한 이용</li>
+                        <li>정기 강습 포함</li>
+                        <li>개인 락커 제공</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="facility-info">
+            <h2>시설 정보</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>운영 시간</h3>
+                    <p>평일: 06:00 - 22:00<br>주말: 09:00 - 18:00</p>
+                </div>
+                <div class="info-item">
+                    <h3>위치</h3>
+                    <p>서울특별시 강남구 테헤란로 123</p>
+                    <div class="map-container" id="map">
+                        <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="지도" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                    </div>
+                </div>
+                <div class="info-item">
+                    <h3>편의시설</h3>
+                    <ul class="amenities-list">
+                        <li>🅿️ 주차장</li>
+                        <li>🚿 샤워실</li>
+                        <li>🔒 락커룸</li>
+                        <li>☕️ 휴게실</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="reservation-section">
+            <h2>예약하기</h2>
+            <div class="calendar-container">
+                <img src="https://images.unsplash.com/photo-1505816014357-96b5ff457e9a?w=800" alt="캘린더" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+            </div>
+            <div class="time-slots">
+                <h3>이용 가능 시간</h3>
+                <div class="time-slot-grid">
+                    <button class="time-slot">09:00</button>
+                    <button class="time-slot">10:00</button>
+                    <button class="time-slot">11:00</button>
+                    <button class="time-slot">13:00</button>
+                    <button class="time-slot">14:00</button>
+                    <button class="time-slot">15:00</button>
+                </div>
+            </div>
+            <button class="reservation-button">예약하기</button>
+        </section>
+
+
+        <section class="reviews-section">
+            <h2>이용 후기</h2>
+            <div class="review-summary">
+                <div class="average-rating">
+                    <span class="big-rating">4.5</span>
+                    <div class="star-icons">★★★★☆</div>
+                </div>
+                <div class="rating-bars">
+                    <div class="review-preview">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800" alt="리뷰 이미지" class="review-image">
+                        <p class="review-text">"시설이 깨끗하고 직원분들이 친절해요!"</p>
+                    </div>
+                </div>
+            </div>
+            <div class="review-list">
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="../js/detail.js"></script>
+</body>
+</html>

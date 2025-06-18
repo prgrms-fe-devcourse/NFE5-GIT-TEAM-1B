@@ -1,60 +1,110 @@
 // 이미지 슬라이더 초기화
 const swiper = new Swiper(".swiper", {
-  // 기본 설정
   direction: "horizontal",
   loop: true,
 
-  // 페이지네이션
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
   },
 
-  // 네비게이션 화살표
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
 
-  // 자동 재생
   autoplay: {
     delay: 5000,
     disableOnInteraction: false,
   },
 });
 
-// 예약 버튼 클릭 이벤트
-document
-  .querySelector(".reservation-button")
-  .addEventListener("click", function () {
-    // 예약 페이지로 이동하는 로직
-    // window.location.href = '/reservation.html';
-    alert("예약 페이지로 이동합니다.");
-  });
+// 예약 정보 상태
+const reservationData = {
+  facilityName: document.querySelector(".facility-name").textContent,
+  location: document.querySelector(".info-card p").textContent,
+  selectedDate: new Date().toISOString().split("T")[0],
+  selectedTime: "",
+  people: 1,
+  totalPrice: 30000,
+};
 
-// 시설 정보 지도 초기화 (예시 - 실제 지도 API 구현 필요)
-function initMap() {
-  // 지도 초기화 로직
-  const mapContainer = document.getElementById("map");
-  if (mapContainer) {
-    // 여기에 실제 지도 API (예: 카카오맵, 네이버맵) 초기화 코드 추가
+// 오늘 날짜 표시
+function displayTodayDate() {
+  const today = new Date();
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    weekday: "long",
+  };
+  const formattedDate = today.toLocaleDateString("ko-KR", options);
+  document.querySelector(".today-date").textContent = formattedDate;
+}
+
+// 인원 수 업데이트
+function updatePeopleCount(change) {
+  const newCount = reservationData.people + change;
+  if (newCount >= 1 && newCount <= 10) {
+    reservationData.people = newCount;
+    document.querySelector(".people-count").textContent = `${newCount}명`;
+    updateTotalPrice();
   }
 }
 
-// 페이지 로드 완료 시 실행
-document.addEventListener("DOMContentLoaded", function () {
-  initMap();
-});
+// 총 가격 업데이트
+function updateTotalPrice() {
+  reservationData.totalPrice = 30000 * reservationData.people;
+  document.querySelector(
+    ".total-price"
+  ).textContent = `${reservationData.totalPrice.toLocaleString()}원`;
+}
 
-// 시간 선택 기능
-document.querySelectorAll(".time-slot").forEach((button) => {
-  button.addEventListener("click", function () {
-    // 이전에 선택된 버튼의 선택 해제
-    document.querySelectorAll(".time-slot").forEach((btn) => {
-      btn.classList.remove("selected");
+function setupEventListeners() {
+  // 시간 선택
+  document.querySelectorAll(".time-slot").forEach((button) => {
+    button.addEventListener("click", function () {
+      document.querySelectorAll(".time-slot").forEach((btn) => {
+        btn.classList.remove("selected");
+      });
+      this.classList.add("selected");
+      reservationData.selectedTime = this.textContent;
     });
-
-    // 현재 버튼 선택
-    this.classList.add("selected");
   });
+
+  // 인원 조절
+  document.querySelector(".decrease").addEventListener("click", () => {
+    updatePeopleCount(-1);
+  });
+
+  document.querySelector(".increase").addEventListener("click", () => {
+    updatePeopleCount(1);
+  });
+
+  // 예약 버튼
+  document
+    .querySelector(".reservation-button")
+    .addEventListener("click", function () {
+      if (!reservationData.selectedTime) {
+        alert("이용 시간을 선택해주세요.");
+        return;
+      }
+
+      const params = new URLSearchParams({
+        facilityName: reservationData.facilityName,
+        location: reservationData.location,
+        date: reservationData.selectedDate,
+        time: reservationData.selectedTime,
+        people: reservationData.people,
+        totalPrice: reservationData.totalPrice,
+      });
+
+      window.location.href = `/pages/reservation.html?${params.toString()}`;
+    });
+}
+
+// 페이지 로드 시 실행
+document.addEventListener("DOMContentLoaded", function () {
+  displayTodayDate();
+  setupEventListeners();
 });

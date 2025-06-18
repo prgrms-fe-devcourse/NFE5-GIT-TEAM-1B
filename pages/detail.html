@@ -10,21 +10,19 @@
 </head>
 <body>
     <main class="facility-detail">
-
+        <!-- 기본 정보 -->
         <section class="facility-header">
-            <div class="facility-basic-info">
-                <h1 class="facility-name">스포츠 복합 센터</h1>
-                <div class="rating-review">
-                    <div class="stars">
-                        <span class="star-rating">4.5</span>
-                        <div class="star-icons">★★★★☆</div>
-                    </div>
-                    <span class="review-count">(리뷰 123개)</span>
+            <h1 class="facility-name">스포츠 복합 센터</h1>
+            <div class="rating-review">
+                <div class="stars">
+                    <span class="star-rating">4.5</span>
+                    <div class="star-icons">★★★★☆</div>
                 </div>
+                <span class="review-count">(리뷰 123개)</span>
             </div>
         </section>
 
-
+        <!-- 이미지 슬라이더 -->
         <section class="image-slider swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800" alt="체육관 내부"></div>
@@ -37,78 +35,100 @@
             <div class="swiper-button-prev"></div>
         </section>
 
+        <!-- 가격 정보 -->
         <section class="pricing-section">
             <h2>이용 요금</h2>
-            <div class="pricing-cards">
-                <div class="pricing-card">
-                    <h3>시간당 이용</h3>
-                    <p class="price">30,000원 / 시간</p>
-                    <ul class="price-details">
-                        <li>평일 주간 기준</li>
-                        <li>최소 1시간부터</li>
-                        <li>장비 대여 포함</li>
-                    </ul>
+            <div class="price-info">
+                <div class="price-row">
+                    <span>시간당</span>
+                    <span class="price">30,000원</span>
                 </div>
-                <div class="pricing-card">
-                    <h3>회원권</h3>
-                    <p class="price">300,000원 / 월</p>
-                    <ul class="price-details">
-                        <li>무제한 이용</li>
-                        <li>정기 강습 포함</li>
-                        <li>개인 락커 제공</li>
-                    </ul>
-                </div>
+                <p class="price-notice">* 평일 주간 기준</p>
             </div>
         </section>
 
-
-        <section class="facility-info">
-            <h2>시설 정보</h2>
-            <div class="info-grid">
-                <div class="info-item">
-                    <h3>운영 시간</h3>
-                    <p>평일: 06:00 - 22:00<br>주말: 09:00 - 18:00</p>
+        <!-- 시설 정보 -->
+        <section class="facility-info-grid">
+            <div class="info-card">
+                <h3>📍 위치</h3>
+                <p>서울특별시 강남구 범범 체육관</p>
+                <div class="map-container">
                 </div>
-                <div class="info-item">
-                    <h3>위치</h3>
-                    <p>서울특별시 강남구 테헤란로 123</p>
-                    <div class="map-container" id="map">
-                        <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="지도" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+            </div>
+            <div class="info-card">
+                <h3>⏰ 운영 시간</h3>
+                <div class="operation-hours">
+                    <div class="time-row">
+                        <span>평일</span>
+                        <span>06:00 - 22:00</span>
+                    </div>
+                    <div class="time-row">
+                        <span>주말</span>
+                        <span>09:00 - 18:00</span>
                     </div>
                 </div>
-                <div class="info-item">
-                    <h3>편의시설</h3>
-                    <ul class="amenities-list">
-                        <li>🅿️ 주차장</li>
-                        <li>🚿 샤워실</li>
-                        <li>🔒 락커룸</li>
-                        <li>☕️ 휴게실</li>
-                    </ul>
-                </div>
+            </div>
+            <div class="info-card">
+                <h3>🏢 편의시설</h3>
+                <ul class="amenities-list">
+                    <li>🅿️ 주차장</li>
+                    <li>🚿 샤워실</li>
+                    <li>🔒 락커룸</li>
+                    <li>☕️ 휴게실</li>
+                </ul>
             </div>
         </section>
 
-
+        <!-- 예약 섹션 -->
         <section class="reservation-section">
             <h2>예약하기</h2>
-            <div class="calendar-container">
-                <img src="https://images.unsplash.com/photo-1505816014357-96b5ff457e9a?w=800" alt="캘린더" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-            </div>
-            <div class="time-slots">
-                <h3>이용 가능 시간</h3>
-                <div class="time-slot-grid">
-                    <button class="time-slot">09:00</button>
-                    <button class="time-slot">10:00</button>
-                    <button class="time-slot">11:00</button>
-                    <button class="time-slot">13:00</button>
-                    <button class="time-slot">14:00</button>
-                    <button class="time-slot">15:00</button>
+            <div class="reservation-container">
+                <div class="reservation-date">
+                    <h4>예약 날짜</h4>
+                    <div class="date-display">
+                        <span class="today-date"></span>
+                        <span class="date-notice">(오늘 날짜 기준)</span>
+                    </div>
                 </div>
+
+                <div class="reservation-time">
+                    <h4>이용 시간</h4>
+                    <div class="time-slot-grid">
+                        <button class="time-slot">09:00</button>
+                        <button class="time-slot">10:00</button>
+                        <button class="time-slot">11:00</button>
+                        <button class="time-slot">13:00</button>
+                        <button class="time-slot">14:00</button>
+                        <button class="time-slot">15:00</button>
+                        <button class="time-slot">16:00</button>
+                        <button class="time-slot">17:00</button>
+                        <button class="time-slot">18:00</button>
+                    </div>
+                </div>
+
+                <div class="reservation-people">
+                    <h4>인원 선택</h4>
+                    <div class="people-control">
+                        <button type="button" class="control-btn decrease">-</button>
+                        <span class="people-count">1명</span>
+                        <button type="button" class="control-btn increase">+</button>
+                    </div>
+                </div>
+
+                <div class="reservation-price">
+                    <h4>결제 금액</h4>
+                    <div class="price-info">
+                        <span class="price-label">총 금액</span>
+                        <span class="total-price">30,000원</span>
+                    </div>
+                    <p class="price-notice">* 1인당 30,000원</p>
+                </div>
+
+                <button class="reservation-button">예약하기</button>
             </div>
-            <button class="reservation-button">예약하기</button>
         </section>
 
-
+        <!-- 리뷰 섹션 -->
         <section class="reviews-section">
             <h2>이용 후기</h2>
             <div class="review-summary">
@@ -116,14 +136,9 @@
                     <span class="big-rating">4.5</span>
                     <div class="star-icons">★★★★☆</div>
                 </div>
-                <div class="rating-bars">
-                    <div class="review-preview">
-                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800" alt="리뷰 이미지" class="review-image">
-                        <p class="review-text">"시설이 깨끗하고 직원분들이 친절해요!"</p>
-                    </div>
+                <div class="review-preview">
+                    <p class="review-text">"시설이 깨끗하고 직원분들이 친절해요!"</p>
                 </div>
-            </div>
-            <div class="review-list">
             </div>
         </section>
     </main>

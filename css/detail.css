@@ -13,24 +13,25 @@ body {
 /* 전체 레이아웃 */
 .facility-detail {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
 /* 상단 섹션 */
 .facility-header {
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .facility-name {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 32px;
     color: #333;
     margin-bottom: 10px;
+}
+
+.facility-address {
+    color: #666;
+    font-size: 16px;
 }
 
 .rating-review {
@@ -51,12 +52,15 @@ body {
 
 /* 이미지 슬라이더 */
 .image-slider {
-    background: #fff;
+    margin-bottom: 40px;
     border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 20px;
-    height: 400px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.swiper {
+    width: 100%;
+    height: 500px;
 }
 
 .swiper-slide img {
@@ -75,19 +79,23 @@ body {
 
 .info-card {
     background: #fff;
-    padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    margin-bottom: 20px;
 }
 
 .info-card h3 {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 18px;
     color: #333;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.info-card h3 i {
+    color: #FF8000;
 }
 
 .map-container {
@@ -103,55 +111,113 @@ body {
     object-fit: cover;
 }
 
-/* 운영 시간 스타일 */
-.operation-hours {
+/* 운영 시간 */
+.operating-hours {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
 }
 
 .time-row {
     display: flex;
     justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 16px;
-}
-
-.time-row span {
-    color: #333;
-}
-
-.time-row span:first-child {
-    font-weight: 500;
-}
-
-.time-row:last-child {
-    border-bottom: none;
-}
-
-/* 편의시설 스타일 */
-.amenities-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-}
-
-.amenities-list li {
-    display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 16px;
-    color: #333;
-    padding: 8px;
+    padding: 12px 16px;
     background: #f8f9fa;
     border-radius: 8px;
     transition: all 0.2s ease;
 }
 
-.amenities-list li:hover {
-    background: #e9ecef;
+.time-row:hover {
+    background: #FFF5E6;
+}
+
+.time-row .day {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+.time-row .day i {
+    color: #FF8000;
+    font-size: 14px;
+}
+
+.time-row .hours {
+    color: #666;
+}
+
+/* 편의시설 */
+.amenities {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.amenity-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.amenity-item:hover {
+    background: #FFF5E6;
+}
+
+.amenity-item i {
+    color: #FF8000;
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+}
+
+.amenity-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.amenity-name {
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+}
+
+.amenity-status {
+    font-size: 13px;
+    color: #666;
+    margin-top: 2px;
+}
+
+/* 섹션 헤더 스타일 개선 */
+.section-header {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #FF8000;
+}
+
+.section-header h3 {
+    font-size: 24px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-header h3 i {
+    color: #FF8000;
+}
+
+.section-description {
+    margin-top: 8px;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.5;
 }
 
 /* 예약 섹션 */
@@ -159,7 +225,7 @@ body {
     background: #fff;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
@@ -219,13 +285,13 @@ body {
 
 .time-slot:hover {
     background: #e9ecef;
-    border-color: #007bff;
+    border-color: #FF8000;
 }
 
 .time-slot.selected {
-    background: #007bff;
+    background: #FF8000;
     color: #fff;
-    border-color: #0056b3;
+    border-color: #FF8000;
 }
 
 /* 인원 선택 */
@@ -255,8 +321,9 @@ body {
 }
 
 .control-btn:hover {
-    background: #e9ecef;
-    border-color: #007bff;
+    background: #FFF5E6;
+    border-color: #FF8000;
+    color: #FF8000;
 }
 
 .people-count {
@@ -268,16 +335,14 @@ body {
 }
 
 /* 가격 정보 */
-.reservation-price {
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-}
-
 .price-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    padding: 15px;
+    background: #FFF5E6;
+    border-radius: 8px;
 }
 
 .price-label {
@@ -288,19 +353,20 @@ body {
 .total-price {
     font-size: 24px;
     font-weight: 600;
-    color: #007bff;
+    color: #FF8000;
 }
 
 .price-notice {
     color: #666;
     font-size: 14px;
+    margin-top: 8px;
 }
 
 /* 예약 버튼 */
 .reservation-button {
     width: 100%;
     padding: 16px;
-    background: #007bff;
+    background: #FF8000;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -308,11 +374,10 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s;
-    margin-top: 10px;
 }
 
 .reservation-button:hover {
-    background: #0056b3;
+    background: #E67300;
 }
 
 /* 리뷰 섹션 */
@@ -364,52 +429,3 @@ body {
     color: #666;
 }
 
-/* 섹션 제목 */
-section h2 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-    .facility-detail {
-        padding: 10px;
-    }
-
-    .image-slider {
-        height: 300px;
-    }
-
-    .facility-info-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .amenities-list {
-        grid-template-columns: 1fr;
-    }
-
-    .review-summary {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .review-preview {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .reservation-section {
-        padding: 20px;
-    }
-
-    .time-slot-grid {
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-    }
-
-    .time-slot {
-        padding: 10px 6px;
-        font-size: 14px;
-    }
-}

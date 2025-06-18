@@ -93,24 +93,63 @@ function cancleCoupon() {
 }
 
 function checkAgreeBox() {
-  const agreeBox = document.querySelectorAll(".agree");
+  // 체크박스 체크에따른 컨디션 조정 함수
+  const agreeBoxes = document.querySelectorAll(".agree");
+  const allAgree = agreeBoxes[0];
+  const indivisualAgree = agreeBoxes[1];
+  const individualBoxes = [agreeBoxes[1], agreeBoxes[2]];
   const confirmBtn = document.querySelector(".confirm-btn");
-  agreeBox.forEach((box) => {
-    box.addEventListener("change", () => handelAllAgree(agreeBox, confirmBtn));
+
+  allAgree.addEventListener("change", () => {
+    handleAllAgree(allAgree, individualBoxes);
+    individualCheck(allAgree, individualBoxes);
+    handleConfirmBtn(indivisualAgree, confirmBtn);
   });
+
+  indivisualAgree.addEventListener("change", () =>
+    handleConfirmBtn(indivisualAgree, confirmBtn)
+  );
+
+  confirmBtn.addEventListener("click", () => {
+    goConfirmPage(indivisualAgree);
+  });
+}
+
+function handleAllAgree(node, arr) {
+  // 전체동의를 누르면 모든 체크박스가 체크되는 기능
+  const isChecked = node.checked;
+  arr.forEach((box) => {
+    box.checked = isChecked;
+  });
+}
+
+function individualCheck(node, arr) {
+  // 개별 체크박스 체크에 따른 전체 동의하기버튼 자동체크기능
+  arr.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (arr.every((b) => b.checked)) {
+        node.checked = true;
+      } else {
+        node.checked = false;
+      }
+    });
+  });
+}
+
+function handleConfirmBtn(node, elem) {
+  // 동의서 체크에 따라서 결제진행버튼 활성화 / 비활성화
+  if (node.checked) {
+    elem.classList.add("active");
+  } else {
+    elem.classList.remove("active");
+  }
 }
 
 checkAgreeBox();
 
-function handelAllAgree(node, elem) {
-  const isChecked = node[0].checked;
-  node[1].checked = isChecked;
-  node[2].checked = isChecked;
-  elem.style.backgroundColor = "#ff8000";
-  elem.style.cursor = "pointer";
-
-  if (!isChecked) {
-    elem.style.backgroundColor = "#888";
-    elem.style.cursor = "not-allowed";
+function goConfirmPage(node) {
+  // 결제 진행 버튼 누를시 예약완료페이지로이동
+  if (node.checked) {
+    location.href = "./reservation_complete.html";
   }
 }

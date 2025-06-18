@@ -1,39 +1,3 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a,
-span {
-  margin: 0;
-  padding: 0;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-button {
-  background-color: transparent;
-  outline: none;
-  border: 0;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .modal {
   position: absolute;
   top: 0;
@@ -259,6 +223,17 @@ img {
     color: #fff;
     cursor: not-allowed;
     transition: all 0.3s;
+  }
+
+  .active {
+    background-color: #ff8000;
+    cursor: pointer;
+  }
+  .active:hover {
+    background-color: #ff6f0f;
+  }
+  .active:active {
+    background-color: #ff6600;
   }
 }
 

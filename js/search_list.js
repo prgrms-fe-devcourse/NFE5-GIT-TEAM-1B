@@ -39,13 +39,21 @@ function renderPage(page) {
   const pageItems = allResults.slice(start, end);
 
   pageItems.forEach(place => {
+    const params = new URLSearchParams({
+      place_name: place.place_name,
+      category_name: place.category_name,
+      address: place.road_address_name || place.address_name,
+    });
+
     const li = document.createElement('li');
     li.className = "result-item";
     li.innerHTML = `
-      <div class="result-title">${place.place_name}</div>
-      <div class="result-category">${place.category_name}</div>
-      <div class="result-address">${place.road_address_name || place.address_name}</div>
-      <div class="result-phone">${place.phone || ''}</div>
+      <a href="../pages/detail.html?${params.toString()}">
+        <div class="result-title">${place.place_name}</div>
+        <div class="result-category">${place.category_name}</div>
+        <div class="result-address">${place.road_address_name || place.address_name}</div>
+        <div class="result-phone">${place.phone || ''}</div>
+      </a>
     `;
     resultList.appendChild(li);
   });

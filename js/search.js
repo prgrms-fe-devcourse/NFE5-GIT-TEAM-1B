@@ -83,8 +83,8 @@ function displayPlaces(places) {
         // 검색된 장소의 위치를 기준으로 지도 범위를 재설정하기위해 LatLngBounds 객체에 좌표 추가
         bounds.extend(placePosition);
 
-        // 마커와 검색결과 항목에 mouseover 했을때 해당 장소에 인포윈도우에 장소명 표시
-        // mouseout 했을 때는 인포윈도우 닫기
+        // 마커와 검색결과 항목에 mouseover 했을때 해당 장소에 툴팁에 장소명 표시
+        // mouseout 했을 때는 툴팁 닫기
         (function(marker, title) {
             kakao.maps.event.addListener(marker, 'mouseover', function() {
                 displayCustomOverlay(marker, title)
@@ -94,16 +94,22 @@ function displayPlaces(places) {
                 if (customOverlay) customOverlay.setMap(null);
             });
 
+            // 마우스 올렸을때 해당 가게로 지도 이동
             itemEl.onmouseover =  function () {
                 displayCustomOverlay(marker, title);
                 //해당 위치를 화면 정가운데 오도록 지도 이동
-                map.panTo(marker.getPosition());
+                // map.panTo(marker.getPosition());
             };
 
             itemEl.onmouseout =  function () {
                 if (customOverlay) customOverlay.setMap(null);
             };
         })(marker, places[i].place_name);
+
+        // ✅ 클릭했을 때 지도 이동하도록 추가
+        itemEl.onclick = function () {
+            map.panTo(marker.getPosition());
+        };
 
         fragment.appendChild(itemEl);
     }
@@ -294,11 +300,10 @@ function displayCustomOverlay(marker, title) {
   customOverlay.setMap(map);
 }
 
-// 쿼리스트링 받으면 내 위치로 이동 눌러진 효과
-// window.onload = function () {
-//   const urlParams = new URLSearchParams(window.location.search);
-//   if (urlParams.get('mylocation') === '1') {
-//     document.getElementById('myLocationBtn').click();
-//   }
-// };
 
+window.addEventListener('load', function () {
+  getUserLocation(function () {
+    map.panTo(userLocation); // 지도 중심 이동
+    displayMyLocation(userLocation); // 내 위치에 빨간 원 표시
+  });
+});

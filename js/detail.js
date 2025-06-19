@@ -158,7 +158,7 @@ function initReviewForm() {
   });
 }
 
-// 새 리뷰 추가 함수
+// 새 리뷰 추가
 function addNewReview(content) {
   const reviewList = document.querySelector(".review-list");
   if (!reviewList) return;

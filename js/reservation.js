@@ -65,6 +65,68 @@ function runReservationLogic() {
     document.querySelector('input[value="company"]').checked = false;
   }
 
+
+  function userCashNumber() {
+    // 현금영수증 타입별로 -을 넣어주는 기능
+    const inputBar = document.querySelector('.cash-number')
+    const cashRadio = document.querySelectorAll('input[name="cash"]')
+
+    inputBar.addEventListener('keydown', (e) => {
+      handleKeyDown(e)
+      if (cashRadio[1].checked) {
+        formatPhoneNumber(inputBar,e);
+      } else if (cashRadio[2].checked) {
+        formatCompanyNumber(inputBar,e)
+      }
+    })
+
+    cashRadio.forEach((btn, index) => {
+      // 현금영수증 다른 라디오버튼 체크시 원래 있던 밸류값 제거
+      btn.addEventListener('change', function(){
+        if (index == 0) {
+          inputBar.value= ""
+          inputBar.setAttribute("disabled",'true');
+        } else if (index == 1) {
+          inputBar.value = "";
+          inputBar.removeAttribute("disabled");
+        } else {
+          inputBar.value = "";
+          inputBar.removeAttribute("disabled");
+        }
+      })
+    })
+  }
+
+  function handleKeyDown(e) {
+    // 문자입력 막는키
+    const numberKey = e.key >= "0" && e.key <= "9"
+    const allowedKey = ['Enter','Backspace','Tab','Control','ArrowLeft','ArrowRight']
+    if (!numberKey && !allowedKey.includes(e.key)) {
+      e.preventDefault();
+    }
+  }
+
+  function formatPhoneNumber(node, e) {
+    // 소득공제용일 때 핸드폰 번호 포맷
+    const raw = node.value.replace(/\D/g,'')
+    if (raw.length <= 11) {
+      node.value = raw.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3");
+    } else if (raw.length > 11) {
+      e.preventDefault()
+    }
+  }
+
+  function formatCompanyNumber(node, e) {
+    // 지출증빙용일때 사업자번호 포맷
+    const raw = node.value.replace(/\D/g,'')
+    if (raw.length <= 10) {
+      node.value = raw.replace(/(\d{3})(\d{2})(\d{5})/, "$1-$2-$3");
+    } else if (raw.length > 10) {
+      e.preventDefault();
+    }
+  }
+
+  userCashNumber()
   function handleCoupon(opacity, prop) {
     // 모달창 애니메이션기능
     const modal = document.querySelector(".modal");

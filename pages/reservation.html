@@ -146,7 +146,7 @@
                 <form class="how-to-payment">
                   <fieldset class="radio-wrap">
                     <div class="way-to-payment">
-                      <input type="radio" value="simple" name="payment" />
+                      <input type="radio" id="simple" name="payment" />
                       <label for="simple">간편결제</label>
                     </div>
                     <div class="way-to-payment">
@@ -173,17 +173,17 @@
                 <div>
                   <form class="cash-radio">
                     <fieldset class="radio-wrap" disabled>
-                      <input type="radio" name="cash" value="none" />
+                      <input type="radio" name="cash" id="none" />
                       <label for="none">미발행</label>
-                      <input type="radio" name="cash" value="indivisual" />
+                      <input type="radio" name="cash" id="indivisual" />
                       <label for="indivisual">소득공제용</label>
-                      <input type="radio" name="cash" value="company" />
+                      <input type="radio" name="cash" id="company" />
                       <label for="company">지출증빙용</label>
                     </fieldset>
                     <fieldset class="input-bar" disabled>
                       <input
-                        type="text"
-                        placeholder="예시 : 010-0000-0000 / 123-45-67890"
+                        type="tel"
+                        placeholder="- 을 뺀 숫자를 입력해 주세요 예시 : 01000000000 / 1234567890"
                         class="cash-number"
                       />
                     </fieldset>
@@ -226,7 +226,7 @@
         <article class="gym-info">
           <div class="card">
             <div class="gym-img">
-              <img src="/FitPlace/assets/images/실내.webp" alt="더미데이터" />
+              <img src="/assets/images/실내.webp" alt="더미데이터" />
             </div>
             <div class="gym-detail">
               <div class="gym-name">

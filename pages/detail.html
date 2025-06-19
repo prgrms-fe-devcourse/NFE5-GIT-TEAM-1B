@@ -17,13 +17,7 @@
       <!-- 기본 정보 -->
       <section class="facility-header">
         <h1 class="facility-name">스포츠 복합 센터</h1>
-        <div class="rating-review">
-          <div class="stars">
-            <span class="star-rating">4.5</span>
-            <div class="star-icons">★★★★☆</div>
-          </div>
-          <span class="review-count">(리뷰 123개)</span>
-        </div>
+
       </section>
 
       <!-- 이미지 슬라이더 -->
@@ -215,14 +209,60 @@
 
       <!-- 리뷰 섹션 -->
       <section class="reviews-section">
-        <h2>이용 후기</h2>
-        <div class="review-summary">
-          <div class="average-rating">
-            <span class="big-rating">4.5</span>
-            <div class="star-icons">★★★★☆</div>
+        <div class="review-header">
+          <h2>이용 후기</h2>
+          <div class="review-summary">
+            <div class="average-rating">
+              <span class="big-rating">4.5</span>
+              <div class="star-icons">★★★★☆</div>
+              <span class="total-reviews">(총 123개)</span>
+            </div>
           </div>
-          <div class="review-preview">
-            <p class="review-text">"시설이 깨끗하고 직원분들이 친절해요!"</p>
+        </div>
+
+        <!-- 리뷰 작성 폼 -->
+        <div class="review-form">
+          <h3>후기 작성</h3>
+          <form id="reviewForm">
+            <div class="review-input">
+              <label>후기 내용</label>
+              <textarea placeholder="시설 이용 후기를 작성해주세요." maxlength="200"></textarea>
+              <span class="char-count">0/200</span>
+            </div>
+            <button type="submit" class="submit-review">작성 완료</button>
+          </form>
+        </div>
+
+        <!-- 리뷰 목록 -->
+        <div class="review-list">
+          <div class="review-item">
+            <div class="review-info">
+              <div class="reviewer">
+                <span class="reviewer-name">김**</span>
+                <span class="review-date">2024.03.20</span>
+              </div>
+            </div>
+            <p class="review-content">시설이 깨끗하고 직원분들이 친절해요! 운동하기 좋은 환경이에요.</p>
+          </div>
+
+          <div class="review-item">
+            <div class="review-info">
+              <div class="reviewer">
+                <span class="reviewer-name">이**</span>
+                <span class="review-date">2024.03.19</span>
+              </div>
+            </div>
+            <p class="review-content">전반적으로 만족스러웠습니다. 다음에도 이용할 것 같아요.</p>
+          </div>
+
+          <div class="review-item">
+            <div class="review-info">
+              <div class="reviewer">
+                <span class="reviewer-name">박**</span>
+                <span class="review-date">2024.03.18</span>
+              </div>
+            </div>
+            <p class="review-content">샤워실도 깨끗하고 좋았어요. 락커도 넉넉해서 편했습니다.</p>
           </div>
         </div>
       </section>

@@ -107,4 +107,79 @@ function setupEventListeners() {
 document.addEventListener("DOMContentLoaded", function () {
   displayTodayDate();
   setupEventListeners();
+
+  // Swiper 초기화
+  const swiper = new Swiper(".swiper", {
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  // 리뷰 폼 초기화
+  initReviewForm();
 });
+
+// 리뷰 폼 초기화
+function initReviewForm() {
+  const reviewForm = document.getElementById("reviewForm");
+  if (!reviewForm) return;
+
+  const textarea = reviewForm.querySelector(".review-input textarea");
+  const charCount = reviewForm.querySelector(".char-count");
+
+  // 글자 수 카운트
+  textarea.addEventListener("input", function () {
+    const length = this.value.length;
+    charCount.textContent = `${length}/200`;
+  });
+
+  // 리뷰 제출
+  reviewForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (textarea.value.trim() === "") {
+      alert("후기 내용을 작성해주세요.");
+      return;
+    }
+
+    // 새 리뷰 추가
+    addNewReview(textarea.value);
+
+    // 폼 초기화
+    textarea.value = "";
+    charCount.textContent = "0/200";
+
+    alert("후기가 등록되었습니다.");
+  });
+}
+
+// 새 리뷰 추가 함수
+function addNewReview(content) {
+  const reviewList = document.querySelector(".review-list");
+  if (!reviewList) return;
+
+  const newReview = document.createElement("div");
+  newReview.className = "review-item";
+
+  const currentDate = new Date();
+  const formattedDate = `${currentDate.getFullYear()}.${String(
+    currentDate.getMonth() + 1
+  ).padStart(2, "0")}.${String(currentDate.getDate()).padStart(2, "0")}`;
+
+  newReview.innerHTML = `
+      <div class="review-info">
+          <div class="reviewer">
+              <span class="reviewer-name">범범</span>
+              <span class="review-date">${formattedDate}</span>
+          </div>
+      </div>
+      <p class="review-content">${content}</p>
+  `;
+
+  reviewList.insertBefore(newReview, reviewList.firstChild);
+}

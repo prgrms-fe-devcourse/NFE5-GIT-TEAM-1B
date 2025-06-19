@@ -1,11 +1,15 @@
-// 내 위치 띄우기
-window.addEventListener('DOMContentLoaded', function () {
+let userLocation = null; // 내 위치 변수
+
+// 내 위치 가져오기
+function setUserLocation(callback) {
   if ('geolocation' in navigator) {
     navigator.geolocation.getCurrentPosition(
       function (position) {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
+        userLocation = new kakao.maps.LatLng(lat, lng);
 
+        // 주소 표시
         const geocoder = new kakao.maps.services.Geocoder();
         geocoder.coord2RegionCode(lng, lat, function(result, status) {
           if (status === kakao.maps.services.Status.OK) {
@@ -15,16 +19,19 @@ window.addEventListener('DOMContentLoaded', function () {
               regionName + ' ';
           }
         });
+
+        if (callback) callback();
       },
       function (error) {
-
+        if (callback) callback();
       }
     );
+  } else {
+    if (callback) callback();
   }
-});
+}
 
-
-// 카카오api
+// 카카오api 검색 리스트
 let ps = new kakao.maps.services.Places();
 let allResults = [];
 let currentPage = 1;
@@ -59,6 +66,7 @@ function renderPage(page) {
   });
 }
 
+// 페이지네이션
 function renderPagination() {
   const paginationEl = document.getElementById('pagination');
   paginationEl.innerHTML = '';
@@ -78,31 +86,41 @@ function renderPagination() {
   }
 }
 
-// 전체 검색 결과를 재귀적으로 수집
+
+// 전체 검색 결과 재귀적 수집
 function fetchAllResults(query, collected = [], page = 1) {
   return new Promise((resolve) => {
-    ps.keywordSearch(query, function (data, status, pagination) {
-      if (status === kakao.maps.services.Status.OK) {
-        collected = collected.concat(data);
+    ps.keywordSearch(
+      query,
+      function (data, status, pagination) {
+        if (status === kakao.maps.services.Status.OK) {
+          collected = collected.concat(data);
 
-        if (pagination.hasNextPage) {
-          pagination.gotoPage(page + 1);
-          setTimeout(() => {
-            fetchAllResults(query, collected, page + 1).then(resolve);
-          }, 200);
+          if (pagination.hasNextPage) {
+            pagination.gotoPage(page + 1);
+            setTimeout(() => {
+              fetchAllResults(query, collected, page + 1).then(resolve);
+            }, 200);
+          } else {
+            const filtered = collected.filter(place =>
+              place.category_name && place.category_name.includes('스포츠')
+            );
+            resolve(filtered);
+          }
         } else {
-          const filtered = collected.filter(place =>
-            place.category_name && place.category_name.includes('스포츠')
-          );
-          resolve(filtered);
+          resolve([]);
         }
-      } else {
-        resolve([]);
+      },
+      {
+        page,
+        ...(userLocation ? { location: userLocation } : {}),
       }
-    }, { page });
+    );
   });
 }
 
+
+// 검색
 document.getElementById('searchForm').addEventListener('submit', async function (e) {
   e.preventDefault();
   const query = document.getElementById('searchInput').value.trim();
@@ -132,12 +150,15 @@ document.getElementById('searchForm').addEventListener('submit', async function 
   }
 });
 
+
 // 페이지 로드 시 URL 파라미터에 query가 있으면 자동 검색
 window.addEventListener('DOMContentLoaded', () => {
-  const params = new URLSearchParams(window.location.search);
-  const query = params.get('query');
-  if (query) {
-    document.getElementById('searchInput').value = query;
-    document.getElementById('searchForm').dispatchEvent(new Event('submit', { bubbles: true }));
-  }
+  setUserLocation(() => {
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get('query');
+    if (query) {
+      document.getElementById('searchInput').value = query;
+      document.getElementById('searchForm').dispatchEvent(new Event('submit', { bubbles: true }));
+    }
+  });
 });

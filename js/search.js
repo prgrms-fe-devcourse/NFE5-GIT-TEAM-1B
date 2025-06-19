@@ -293,3 +293,12 @@ function displayCustomOverlay(marker, title) {
 
   customOverlay.setMap(map);
 }
+
+// 쿼리스트링 받으면 내 위치로 이동 눌러진 효과
+// window.onload = function () {
+//   const urlParams = new URLSearchParams(window.location.search);
+//   if (urlParams.get('mylocation') === '1') {
+//     document.getElementById('myLocationBtn').click();
+//   }
+// };
+

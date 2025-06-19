@@ -1,4 +1,5 @@
 let userLocation = null; // 내 위치 초기화
+let customOverlay = null; // 커스텀 오버레이
 let markers = [];// 마커 담을 배열
 let mapContainer = document.querySelector('#map'); // 지도 표시할 div 
 let mapOption = {
@@ -8,9 +9,7 @@ let mapOption = {
 // 1. 지도 생성   
 let map = new kakao.maps.Map(mapContainer, mapOption); 
 // 2. 장소 검색 객체 생성
-let ps = new kakao.maps.services.Places();  
-// 3. 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우(툴팁) 생성
-let infowindow = new kakao.maps.InfoWindow({zIndex:1});
+let ps = new kakao.maps.services.Places();
 
 
 
@@ -88,21 +87,21 @@ function displayPlaces(places) {
         // mouseout 했을 때는 인포윈도우 닫기
         (function(marker, title) {
             kakao.maps.event.addListener(marker, 'mouseover', function() {
-                displayInfowindow(marker, title);
+                displayCustomOverlay(marker, title)
             });
 
             kakao.maps.event.addListener(marker, 'mouseout', function() {
-                infowindow.close();
+                if (customOverlay) customOverlay.setMap(null);
             });
 
             itemEl.onmouseover =  function () {
-                displayInfowindow(marker, title);
+                displayCustomOverlay(marker, title);
                 //해당 위치를 화면 정가운데 오도록 지도 이동
                 map.panTo(marker.getPosition());
             };
 
             itemEl.onmouseout =  function () {
-                infowindow.close();
+                if (customOverlay) customOverlay.setMap(null);
             };
         })(marker, places[i].place_name);
 
@@ -206,17 +205,6 @@ function displayPagination(pagination) {
 }
 
 
-// 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수
-// 인포윈도우(툴팁)에 장소명 표시
-function displayInfowindow(marker, title) {
-    let content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
-
-    infowindow.setContent(content);
-    infowindow.open(map, marker);
-}
-
-
-
  // 검색결과 목록의 자식 Element 제거 (목록 전체 제거)
 function removeAllChildNodes(el) {   
     while (el.hasChildNodes()) {
@@ -281,4 +269,27 @@ function getUserLocation(callback) {
     userLocation = new kakao.maps.LatLng(37.566826, 126.9786567);
     callback();
   }
+}
+
+// 마커 hover 했을때 나오는 커스텀 오버레이
+function displayCustomOverlay(marker, title) {
+  // 기존 오버레이 제거
+  if (customOverlay) customOverlay.setMap(null);
+
+  const content = `
+    <div class="custom-overlay">
+      <div class="custom-overlay-content">
+        ${title}
+      </div>
+    </div>
+  `;
+
+  customOverlay = new kakao.maps.CustomOverlay({
+    content: content,
+    position: marker.getPosition(),
+    yAnchor: 2.5,
+    zIndex: 3
+  });
+
+  customOverlay.setMap(map);
 }

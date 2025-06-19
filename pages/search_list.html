@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>어디있짐 - 운동 시설 검색</title>
+  <title>어디있짐 - 운동 시설 검색 리스트</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/search_list.css" />
   <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9aec53f5d3070b2bdd8f3ab6e47c9854&libraries=services" ></script>
-  <link rel="stylesheet" href="./css/reset.css" />
-  <link rel="stylesheet" href="./css/main.css" />
-  <script src="./js/main.js" defer></script>
+  <script src="../js/search_list.js" defer></script>
 </head>
 <body>
   <header class="header">
       <div class="header-inner">
         <h1 class="logo">
-          <a href="./index.html">
+          <a href="../index.html">
             <svg
               width="61"
               height="55"
@@ -105,94 +105,26 @@
       <div class="search-input-area">
         <button class="location">
           내위치
-          <!-- <img src="./assets/icons/chevron-down.svg" alt="지역 선택" /> -->
+          <!-- <img src="../assets/icons/chevron-down.svg" alt="지역 선택" /> -->
         </button>
 
-        <form action="./pages/search_list.html" method="GET" class="search-input-wrap">
-          <input type="text" name="query" placeholder="어떤 운동을 찾고 계신가요?" />
+        <form id="searchForm" action="#" method="GET" class="search-input-wrap">
+          <input id="searchInput" type="text" name="query" placeholder="어떤 운동을 찾고 계신가요?" />
           <button type="submit" class="search-btn">
-            <img src="./assets/icons/search_s.svg" alt="검색" />
+            <img src="../assets/icons/search_s.svg" alt="검색" />
           </button>
         </form>
       </div>
     </section>
 
-    <!-- 운동 종목 선택 영역 -->
-    <nav class="sports-category">
-      <a href="#" class="category">
-        <img src="./assets/icons/fitness.svg" alt="헬스 아이콘" />
-        <span>헬스</span>
-      </a>
-      <a href="#" class="category">
-        <img src="./assets/icons/yoga.svg" alt="필라테스 아이콘" />
-        <span>필라테스</span>
-      </a>
-      <a href="#" class="category">
-        <img src="./assets/icons/weightlifting.svg" alt="크로스핏 아이콘" />
-        <span>크로스핏</span>
-      </a>
-      <a href="#" class="category">
-        <img src="./assets/icons/tennis.svg" alt="테니스 아이콘" />
-        <span>테니스</span>
-      </a>
-      <a href="#" class="category">
-        <img src="./assets/icons/swimming.svg" alt="수영 아이콘" />
-        <span>수영</span>
-      </a>
-      <a href="#" class="category">
-        <img src="./assets/icons/badminton.svg" alt="배드민턴 아이콘" />
-        <span>배드민턴</span>
-      </a>
-      <a href="#" class="category">
-        <img src="./assets/icons/boxing.svg" alt="복싱 아이콘" />
-        <span>복싱</span>
-      </a>
-    </nav>
-
-    <!-- 서브 태그 -->
-    <section class="sub-tags">
-      <a href="#" class="tag">풋살장</a>
-      <a href="#" class="tag">배드민턴장</a>
-      <a href="#" class="tag">농구장</a>
-      <a href="#" class="tag">탁구장</a>
-      <a href="#" class="tag">야구장</a>
-      <a href="#" class="tag">족구장</a>
-      <a href="#" class="tag">테니스장</a>
+    <!-- 업체 리스트 영역 -->
+    <section class="result-section">
+      <div id="noResult" class="noResult">검색 결과가 없습니다.</div>
+      <ul id="resultList" class="result-list"></ul>
+      <div id="pagination" class="pagination"></div>
     </section>
 
-    <div class="view-all-category">
-      <a href="./pages/search_list.html" class="view-all-link">다른 종목 궁금하다면?</a>
-    </div>
-
-    <!-- 소모임 영역 -->
-    <section class="community-section">
-      <div class="section-header">
-        <h2>같이 즐겨요! 인기있는 소모임🔥</h2>
-        <a href="./pages/community.html" class="more-link">더 보기</a>
-      </div>
-      <div class="community-cards">
-        <a href="#" class="card">
-          <img src="https://cdn.pixabay.com/photo/2021/12/10/17/42/camp-6861087_1280.jpg" alt="소모임 이미지1" />
-        </a>
-        <a href="#" class="card">
-          <img src="https://cdn.pixabay.com/photo/2021/12/10/17/42/camp-6861087_1280.jpg" alt="소모임 이미지2" />
-        </a>
-        <a href="#" class="card">
-          <img src="https://cdn.pixabay.com/photo/2021/12/10/17/42/camp-6861087_1280.jpg" alt="소모임 이미지3" />
-        </a>
-        <a href="#" class="card">
-          <img src="https://cdn.pixabay.com/photo/2021/12/10/17/42/camp-6861087_1280.jpg" alt="소모임 이미지4" />
-        </a>
-      </div>
-    </section>
-
-    <!-- CTA 버튼 -->
-    <div class="cta-button-wrap">
-      <a href="./pages/search.html?mylocation=1" class="cta-button">
-        내 주변 시설 보기
-        <img src="./assets/icons/search.svg" alt="지도 검색" />
-      </a>
-    </div>
+    
   </main>
 </body>
 </html>

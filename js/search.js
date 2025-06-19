@@ -1,9 +1,10 @@
+let userLocation = null; // 내 위치 초기화
 let markers = [];// 마커 담을 배열
 let mapContainer = document.querySelector('#map'); // 지도 표시할 div 
 let mapOption = {
-        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도 중심좌표
+        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도 중심좌표(기본값:서울역)
         level: 3 // 지도 확대 레벨
-    };  
+    };
 // 1. 지도 생성   
 let map = new kakao.maps.Map(mapContainer, mapOption); 
 // 2. 장소 검색 객체 생성
@@ -15,15 +16,19 @@ let infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 // 키워드로 장소 검색
 function searchPlaces() {
-    let keyword = document.querySelector('#keyword').value;
+   const keyword = document.querySelector('#keyword').value.trim();
 
-    if (!keyword.replace(/^\s+|\s+$/g, '')) {
+    if (!keyword) {
         alert('키워드를 입력해주세요!');
-        return false;
+        return;
     }
 
-    // 장소검색 객체를 통해 키워드로 장소검색 요청
-    ps.keywordSearch( keyword, placesSearchCB); 
+    // 위치를 먼저 받아온 후 검색 실행
+    getUserLocation(function () {
+    ps.keywordSearch(keyword, placesSearchCB, {
+      location: userLocation   // ✅ 현재 위치 기반으로 검색
+    });
+  });
 }
 
 
@@ -256,4 +261,24 @@ function displayMyLocation(locPosition) {
 
   // 해당 위치를 화면 정가운데 오도록 지도 이동
   map.panTo(locPosition);
+}
+
+
+// 내위치 가져오는 함수
+function getUserLocation(callback) {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      userLocation = new kakao.maps.LatLng(lat, lng);
+      callback(); // 위치 받아온 후 검색 실행
+    }, function () {
+      // 실패 시 기본값 사용 (서울 시청 근처)
+      userLocation = new kakao.maps.LatLng(37.566826, 126.9786567);
+      callback();
+    });
+  } else {
+    userLocation = new kakao.maps.LatLng(37.566826, 126.9786567);
+    callback();
+  }
 }

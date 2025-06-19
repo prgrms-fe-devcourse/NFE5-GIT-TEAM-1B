@@ -1,192 +1,214 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>시설 상세 정보</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/detail.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/detail.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
     <main class="facility-detail">
-        <!-- 기본 정보 -->
-        <section class="facility-header">
-            <h1 class="facility-name">스포츠 복합 센터</h1>
-            <div class="rating-review">
-                <div class="stars">
-                    <span class="star-rating">4.5</span>
-                    <div class="star-icons">★★★★☆</div>
-                </div>
-                <span class="review-count">(리뷰 123개)</span>
-            </div>
-        </section>
+      <!-- 기본 정보 -->
+      <section class="facility-header">
+        <h1 class="facility-name">스포츠 복합 센터</h1>
+        <div class="rating-review">
+          <div class="stars">
+            <span class="star-rating">4.5</span>
+            <div class="star-icons">★★★★☆</div>
+          </div>
+          <span class="review-count">(리뷰 123개)</span>
+        </div>
+      </section>
 
-        <!-- 이미지 슬라이더 -->
-        <section class="image-slider swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800" alt="체육관 내부"></div>
-                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800" alt="농구장"></div>
-                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1576941089067-2de3c901e126?w=800" alt="수영장"></div>
-                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1598136490941-30d885318abd?w=800" alt="헬스장"></div>
-            </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </section>
+      <!-- 이미지 슬라이더 -->
+      <section class="image-slider swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img
+              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800"
+              alt="체육관 내부"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800"
+              alt="농구장"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://images.unsplash.com/photo-1576941089067-2de3c901e126?w=800"
+              alt="수영장"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://images.unsplash.com/photo-1598136490941-30d885318abd?w=800"
+              alt="헬스장"
+            />
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </section>
 
-        <!-- 가격 정보 -->
-        <section class="pricing-section">
-            <h2>이용 요금</h2>
+      <!-- 가격 정보 -->
+      <section class="pricing-section">
+        <h2>이용 요금</h2>
+        <div class="price-info">
+          <div class="price-row">
+            <span>시간당</span>
+            <span class="price">30,000원</span>
+          </div>
+          <p class="price-notice">* 평일 주간 기준</p>
+        </div>
+      </section>
+
+      <!-- 시설 정보 -->
+      <section class="facility-info-grid">
+        <div class="info-card">
+          <h3>📍 위치</h3>
+          <p>서울특별시 강남구 범범 체육관</p>
+          <div class="map-container"></div>
+        </div>
+        <div class="info-card">
+          <h3>
+            <i class="fas fa-clock"></i>
+            운영 시간
+          </h3>
+          <div class="operating-hours">
+            <div class="time-row">
+              <div class="day">
+                <i class="fas fa-sun"></i>
+                평일
+              </div>
+              <div class="hours">06:00 - 22:00</div>
+            </div>
+            <div class="time-row">
+              <div class="day">
+                <i class="fas fa-moon"></i>
+                토요일
+              </div>
+              <div class="hours">08:00 - 20:00</div>
+            </div>
+            <div class="time-row">
+              <div class="day">
+                <i class="fas fa-star"></i>
+                일요일/공휴일
+              </div>
+              <div class="hours">09:00 - 18:00</div>
+            </div>
+          </div>
+        </div>
+        <div class="info-card">
+          <h3>
+            <i class="fas fa-concierge-bell"></i>
+            편의시설
+          </h3>
+          <div class="amenities">
+            <div class="amenity-item">
+              <i class="fas fa-shower"></i>
+              <div class="amenity-info">
+                <div class="amenity-name">샤워실</div>
+                <div class="amenity-status">이용가능</div>
+              </div>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-tshirt"></i>
+              <div class="amenity-info">
+                <div class="amenity-name">운동복 대여</div>
+                <div class="amenity-status">이용가능</div>
+              </div>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-parking"></i>
+              <div class="amenity-info">
+                <div class="amenity-name">주차장</div>
+                <div class="amenity-status">2시간 무료</div>
+              </div>
+            </div>
+            <div class="amenity-item">
+              <i class="fas fa-lock"></i>
+              <div class="amenity-info">
+                <div class="amenity-name">개인 락커</div>
+                <div class="amenity-status">이용가능</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 예약 섹션 -->
+      <section class="reservation-section">
+        <h2>예약하기</h2>
+        <div class="reservation-container">
+          <div class="reservation-date">
+            <h4>예약 날짜</h4>
+            <div class="date-display">
+              <span class="today-date"></span>
+              <span class="date-notice">(오늘 날짜 기준)</span>
+            </div>
+          </div>
+
+          <div class="reservation-time">
+            <h4>이용 시간</h4>
+            <div class="time-slot-grid">
+              <button class="time-slot">09:00</button>
+              <button class="time-slot">10:00</button>
+              <button class="time-slot">11:00</button>
+              <button class="time-slot">13:00</button>
+              <button class="time-slot">14:00</button>
+              <button class="time-slot">15:00</button>
+              <button class="time-slot">16:00</button>
+              <button class="time-slot">17:00</button>
+              <button class="time-slot">18:00</button>
+            </div>
+          </div>
+
+          <div class="reservation-people">
+            <h4>인원 선택</h4>
+            <div class="people-control">
+              <button type="button" class="control-btn decrease">-</button>
+              <span class="people-count">1명</span>
+              <button type="button" class="control-btn increase">+</button>
+            </div>
+          </div>
+
+          <div class="reservation-price">
+            <h4>결제 금액</h4>
             <div class="price-info">
-                <div class="price-row">
-                    <span>시간당</span>
-                    <span class="price">30,000원</span>
-                </div>
-                <p class="price-notice">* 평일 주간 기준</p>
+              <span class="price-label">총 금액</span>
+              <span class="total-price">30,000원</span>
             </div>
-        </section>
+            <p class="price-notice">* 1인당 30,000원</p>
+          </div>
 
-        <!-- 시설 정보 -->
-        <section class="facility-info-grid">
-            <div class="info-card">
-                <h3>📍 위치</h3>
-                <p>서울특별시 강남구 범범 체육관</p>
-                <div class="map-container">
-                </div>
-            </div>
-            <div class="info-card">
-                <h3>
-                    <i class="fas fa-clock"></i>
-                    운영 시간
-                </h3>
-                <div class="operating-hours">
-                    <div class="time-row">
-                        <div class="day">
-                            <i class="fas fa-sun"></i>
-                            평일
-                        </div>
-                        <div class="hours">06:00 - 22:00</div>
-                    </div>
-                    <div class="time-row">
-                        <div class="day">
-                            <i class="fas fa-moon"></i>
-                            토요일
-                        </div>
-                        <div class="hours">08:00 - 20:00</div>
-                    </div>
-                    <div class="time-row">
-                        <div class="day">
-                            <i class="fas fa-star"></i>
-                            일요일/공휴일
-                        </div>
-                        <div class="hours">09:00 - 18:00</div>
-                    </div>
-                </div>
-            </div>
-            <div class="info-card">
-                <h3>
-                    <i class="fas fa-concierge-bell"></i>
-                    편의시설
-                </h3>
-                <div class="amenities">
-                    <div class="amenity-item">
-                        <i class="fas fa-shower"></i>
-                        <div class="amenity-info">
-                            <div class="amenity-name">샤워실</div>
-                            <div class="amenity-status">이용가능</div>
-                        </div>
-                    </div>
-                    <div class="amenity-item">
-                        <i class="fas fa-tshirt"></i>
-                        <div class="amenity-info">
-                            <div class="amenity-name">운동복 대여</div>
-                            <div class="amenity-status">이용가능</div>
-                        </div>
-                    </div>
-                    <div class="amenity-item">
-                        <i class="fas fa-parking"></i>
-                        <div class="amenity-info">
-                            <div class="amenity-name">주차장</div>
-                            <div class="amenity-status">2시간 무료</div>
-                        </div>
-                    </div>
-                    <div class="amenity-item">
-                        <i class="fas fa-lock"></i>
-                        <div class="amenity-info">
-                            <div class="amenity-name">개인 락커</div>
-                            <div class="amenity-status">이용가능</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+          <button class="reservation-button">예약하기</button>
+        </div>
+      </section>
 
-        <!-- 예약 섹션 -->
-        <section class="reservation-section">
-            <h2>예약하기</h2>
-            <div class="reservation-container">
-                <div class="reservation-date">
-                    <h4>예약 날짜</h4>
-                    <div class="date-display">
-                        <span class="today-date"></span>
-                        <span class="date-notice">(오늘 날짜 기준)</span>
-                    </div>
-                </div>
-
-                <div class="reservation-time">
-                    <h4>이용 시간</h4>
-                    <div class="time-slot-grid">
-                        <button class="time-slot">09:00</button>
-                        <button class="time-slot">10:00</button>
-                        <button class="time-slot">11:00</button>
-                        <button class="time-slot">13:00</button>
-                        <button class="time-slot">14:00</button>
-                        <button class="time-slot">15:00</button>
-                        <button class="time-slot">16:00</button>
-                        <button class="time-slot">17:00</button>
-                        <button class="time-slot">18:00</button>
-                    </div>
-                </div>
-
-                <div class="reservation-people">
-                    <h4>인원 선택</h4>
-                    <div class="people-control">
-                        <button type="button" class="control-btn decrease">-</button>
-                        <span class="people-count">1명</span>
-                        <button type="button" class="control-btn increase">+</button>
-                    </div>
-                </div>
-
-                <div class="reservation-price">
-                    <h4>결제 금액</h4>
-                    <div class="price-info">
-                        <span class="price-label">총 금액</span>
-                        <span class="total-price">30,000원</span>
-                    </div>
-                    <p class="price-notice">* 1인당 30,000원</p>
-                </div>
-
-                <button class="reservation-button">예약하기</button>
-            </div>
-        </section>
-
-        <!-- 리뷰 섹션 -->
-        <section class="reviews-section">
-            <h2>이용 후기</h2>
-            <div class="review-summary">
-                <div class="average-rating">
-                    <span class="big-rating">4.5</span>
-                    <div class="star-icons">★★★★☆</div>
-                </div>
-                <div class="review-preview">
-                    <p class="review-text">"시설이 깨끗하고 직원분들이 친절해요!"</p>
-                </div>
-            </div>
-        </section>
+      <!-- 리뷰 섹션 -->
+      <section class="reviews-section">
+        <h2>이용 후기</h2>
+        <div class="review-summary">
+          <div class="average-rating">
+            <span class="big-rating">4.5</span>
+            <div class="star-icons">★★★★☆</div>
+          </div>
+          <div class="review-preview">
+            <p class="review-text">"시설이 깨끗하고 직원분들이 친절해요!"</p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="../js/detail.js"></script>
-</body>
+  </body>
 </html>

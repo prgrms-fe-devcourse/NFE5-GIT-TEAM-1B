@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/FitPlace/css/reset.css" />
-    <link rel="stylesheet" href="/FitPlace/css/reservation.css" />
-    <script src="/FitPlace/js/reservation.js" defer></script>
+    <link rel="stylesheet" href="../css/reservation.css" />
+    <script src="../js/reservation.js" defer></script>
     <title>예약 확인</title>
   </head>
   <body>
@@ -13,7 +12,7 @@
       <header class="header">
         <div class="header-inner">
           <h1 class="logo">
-            <a href="#">
+            <a href="../index.html">
               <svg
                 width="61"
                 height="55"
@@ -109,15 +108,19 @@
           <div class="top">
             <div class="place">
               <div>장소</div>
-              <div>고양 실내 체육관</div>
+              <div class="gym-title"></div>
+            </div>
+            <div class="date">
+              <div>예약 일</div>
+              <p class="book-date_text"></p>
             </div>
             <div class="hour">
               <p>이용시간</p>
-              <p>13:00 ~ 15:00</p>
+              <p class="book-duringtime_text"></p>
             </div>
             <div class="people">
               <p>인원</p>
-              <p><span>n</span>명</p>
+              <p><span class="use-people_text"></span>명</p>
             </div>
           </div>
           <div class="bottom">
@@ -135,12 +138,12 @@
             </div>
             <div class="total-payment">
               <h3>결제 금액</h3>
-              <h3><span>36,000</span>원</h3>
+              <h3><span class="final-payment"></span>원</h3>
             </div>
           </div>
         </div>
         <div class="backhome">
-          <button type="button" class="home-btn">홈으로</button>
+          <button type="button" class="home-btn"><a href="../index.html">홈으로</a></button>
         </div>
       </main>
     </div>

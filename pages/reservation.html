@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/FitPlace/css/reset.css" />
-    <link rel="stylesheet" href="/FitPlace/css/reservation.css" />
-    <script src="/FitPlace/js/reservation.js" defer></script>
+    <link rel="stylesheet" href="../css/reservation.css" />
+    <script src="../js/reservation.js" defer></script>
     <title>어디있짐 예약</title>
   </head>
   <body>
@@ -49,11 +48,12 @@
         </div>
       </div>
     </div>
+
     <div class="layout">
       <header class="header">
         <div class="header-inner">
           <h1 class="logo">
-            <a href="#">
+            <a href="../index.html">
               <svg
                 width="61"
                 height="55"
@@ -128,21 +128,14 @@
               </svg>
             </a>
           </h1>
-          <div class="hamburger-btn">
-            <svg
-              width="55"
-              height="55"
-              viewBox="0 0 55 55"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect x="5" y="10" width="45" height="6" fill="#888" rx="2" />
-              <rect x="5" y="24.5" width="45" height="6" fill="#888" rx="2" />
-              <rect x="5" y="39" width="45" height="6" fill="#888" rx="2" />
-            </svg>
-          </div>
+          <nav>
+          <ul class="nav">
+            <li><a href="../pages/community.html">모임</a></li>
+            <li><a href="../pages/search.html">시설 찾기</a></li>
+          </ul>
+        </nav>
         </div>
       </header>
-
       <main class="content-wrap">
         <article class="check-resevation">
           <div>
@@ -237,7 +230,7 @@
             </div>
             <div class="gym-detail">
               <div class="gym-name">
-                <p>고양 실내 체육관</p>
+                <p class="gym-title"></p>
                 <div class="gym-location">
                   <svg
                     width="19"
@@ -260,7 +253,7 @@
                     />
                   </svg>
 
-                  <p>경기도 고양시</p>
+                  <p class="gym-location_text"></p>
                 </div>
               </div>
               <div class="gym-rate">
@@ -284,21 +277,21 @@
               <h3>예약상세</h3>
               <div class="book-date">
                 <p>예약일</p>
-                <p>2025-07-07 (월)</p>
+                <p class="book-date_text"></p>
               </div>
               <div class="book-duringtime">
                 <p>이용시간</p>
-                <p>13 : 00 ~ 15 : 00</p>
+                <p class="book-duringtime_text"></p>
               </div>
               <div class="use-people">
                 <p>인원</p>
-                <p><span>n</span>명</p>
+                <p><span class="use-people_text">n</span>명</p>
               </div>
             </div>
             <hr />
             <div class="pay-info">
               <h3>결제정보</h3>
-              <h3><span>n</span>원</h3>
+              <h3><span class="final-payment"></span>원</h3>
             </div>
           </div>
         </article>

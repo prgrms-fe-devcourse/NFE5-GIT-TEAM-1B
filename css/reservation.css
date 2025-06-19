@@ -1,3 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: transparent;
+  outline: none;
+  border: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
 .modal {
   position: absolute;
   top: 0;
@@ -91,10 +119,19 @@
 }
 .header-inner {
   display: flex;
-  justify-content: space-between;
-  .hamburger-btn {
-    position: relative;
-    cursor: pointer;
+  align-items: center;
+
+  .nav{
+    display:flex;
+    gap: 48px;
+    font-size: 20px;
+    font-weight: 700;
+    padding-bottom: 8px;
+    transition : all 0.5s;
+
+    > li:hover{
+      color:#ff8000
+    }
   }
 }
 .content-wrap {
@@ -341,6 +378,11 @@
     width: 100%;
   }
 
+  .date {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
   .hour {
     display: flex;
     justify-content: space-between;

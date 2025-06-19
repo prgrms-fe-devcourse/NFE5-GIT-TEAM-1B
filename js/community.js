@@ -21,7 +21,7 @@ const data = [
     category: "골프",
     area: "서울 강남구",
     photo:
-      "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F065%2F2025%2F01%2F13%2F0000272913_031_20250114001422349.JPG&type=a340",
+      "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA2MjZfMjQz%2FMDAxNjg3Nzg0ODI4ODIw.YtQzTJBTm7Airz_ZR9pm4qe2JDAY2bXwz4AEqoZhI5Ug.8KTbThcpnpwwRQe41JCPU_Oa3snQnol9q5eASIvTaHIg.JPEG.green_sketchbook%2F%25C4%25AB%25C4%25AB%25BF%25C0%25B0%25F1%25C7%25C1.jpg&type=a340",
   },
   {
     title: "한마음 cycling",
@@ -39,18 +39,19 @@ const data = [
       "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDA1MjZfMjEy%2FMDAxNTkwNDc0MzkwMDQ5.vIKFMvqVqr15v10ufdO7NOrBWsbDyNAv0Z6rOpI2s6wg.rf4lLu1gpOptLfkswVTwEuXhbVVVPCnH1X8ve10uohUg.JPEG.dca0492%2FDSC02458.JPG&type=a340",
   },
 ];
+
 function handleGolf() {
-  data.forEach(({ category, photo, title, area }) => {
-    if (category === "골프") {
-      const communityBoxs = document.querySelector(".communityBoxs");
-      communityBoxs.textContent = "";
-      print(photo, title, area);
+  const communityBox = document.querySelectorAll(".communityBox");
+  communityBox.forEach((id) => {
+    if (!(id.id === "골프")) {
+      id.hidden = true;
     }
   });
 }
 
-function print(photo, title, area) {
-  const tem = `<div class="communityBox">
+function print(photo, title, area, category) {
+  const tem = `<div class="communityBox"id="${category}">
+            <div class="box">
             <div class="imageContainer">
               <div class="likeButton"></div>
               <img
@@ -60,16 +61,16 @@ function print(photo, title, area) {
             <div class="textContainer">
               <p class="area">${area}</p>
               <p class="title">${title}</p>
-            </div>
+            </div></div>
           </div>`;
   const communityBoxs = document.querySelector(".communityBoxs");
   communityBoxs.insertAdjacentHTML("beforeend", tem);
 }
 
 function mola() {
-  data.forEach(({ photo, title, area }) => {
+  data.forEach(({ photo, title, area, category }) => {
     // console.log(title, introduction);
-    print(photo, title, area);
+    print(photo, title, area, category);
   });
   const golf = document.querySelector(".golf");
   golf.addEventListener("click", handleGolf);

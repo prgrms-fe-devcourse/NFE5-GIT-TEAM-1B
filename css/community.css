@@ -93,12 +93,15 @@ header {
   gap: 70px 20px;
   width: 100%;
   white-space: pre;
+  /* position: relative; */
 }
 
-.communityBox {
+.box {
   width: 285px;
   display: flex;
   flex-direction: column;
+  /* position: relative; */
+  /* overflow: hidden; */
 }
 
 .imageContainer {

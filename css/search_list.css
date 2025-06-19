@@ -1,0 +1,158 @@
+/* pretendard */
+* {
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* 기본 세팅 */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #1e1e1e;
+}
+
+
+/* 헤더 */
+.header {
+  height: 80px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  .hamburger-btn {
+    position: relative;
+    cursor: pointer;
+  }
+}
+
+
+/* 검색 영역 */
+.search-section {
+  padding: 24px 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.search-input-area {
+  width: 100%;
+  max-width: 700px;
+  gap: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.location {
+  height: 50px;
+  padding: 11px 18px 11px 18px;
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  background-color: #ff8000;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.search-input-wrap {
+  height: 50px;
+  padding: 0 12px;
+  border: 1px solid #DADDE5;
+  border-radius: 12px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.search-input-wrap input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #222;
+  padding: 0 8px;
+  background: transparent;
+}
+
+.search-btn {
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.search-btn img {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* 결과 리스트 */
+.result-section {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.result-list {
+  list-style: none;
+  margin: 0;
+  min-height: 70vh;
+}
+
+.result-item {
+  padding: 18px 20px 14px 20px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  /* transition: background 0.15s; */
+}
+
+.result-item:hover {
+  background: #f7f7f7;
+}
+
+.result-title {
+  font-weight: bold;
+  font-size: 1.08rem;
+  margin-bottom: 6px;
+}
+
+.result-address,
+.result-category,
+.result-phone {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.noResult {
+  display: none;
+  color: #888;
+  padding: 24px 0;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* 페이지 */
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+.page-btn {
+  margin: 0 4px;
+  padding: 6px 12px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+}
+.page-btn.active {
+  font-weight: bold;
+  background: #ff8000;
+  color: white;
+}

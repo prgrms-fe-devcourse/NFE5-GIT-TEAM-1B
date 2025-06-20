@@ -106,6 +106,7 @@ a {
   border-radius: 18px;
   border: 1px solid rgb(219, 219, 219);
   line-height: 0;
+  cursor: pointer;
 }
 
 .communityBoxs {

@@ -4,6 +4,8 @@
     <title>Community</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/assets/images/favicon-32x32.png" />
+
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/community.css" />
     <script src="../js/community.js" type="module"></script>
@@ -17,28 +19,33 @@
               <img src="../assets/images/logo.svg" alt="어디있짐" />
             </a>
           </h1>
+          <nav>
+            <ul class="nav">
+              <li><a href="../pages/community.html">모임</a></li>
+              <li><a href="../pages/search.html">시설 찾기</a></li>
+            </ul>
+          </nav>
           <div class="headerButtonContainer">
-            <button class="h-btn search" type="button"></button>
-            <button class="h-btn hamburger" type="button"></button>
+            <button class="search" type="button"></button>
             <button class="make" type="button">모임 만들기</button>
           </div>
         </div>
       </header>
       <div class="filterContainer">
         <ul class="filterList">
-          <li>
-            지역
-            <div class="filterIcon"></div>
+          <li class="badminton">
+            <!-- 지역 -->
+            배드민턴
           </li>
-          <li>
-            정원
-            <div class="filterIcon"></div>
+          <li class="bowling">
+            <!-- 정원 -->
+            볼링
           </li>
           <li class="golf">
             골프
             <!-- 카테고리 -->
-            <div class="filterIcon"></div>
           </li>
+          <li class="cycle">자전거</li>
         </ul>
         <button class="resetButton">초기화</button>
       </div>

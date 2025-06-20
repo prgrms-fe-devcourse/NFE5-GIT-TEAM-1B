@@ -1,6 +1,6 @@
 export const data = [
   {
-    title: `🎳Turn On: 신입모집중💜`,
+    title: `🎳Turn On: 신입모집중💜 여러분 많이 신청해주세요!`,
     introduction: `🎳 Turn On B.C 🎳
 턴온 볼링클럽
 신입 회원 모집 합니다!
@@ -100,7 +100,7 @@ export const data = [
 단톡방 초대 부탁드립니다  라고 쓰시면
 단톡방 url 로 초대해 드립니다`,
     category: "골프",
-    area: "서울 강남구",
+    area: "강남구",
     photo:
       "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA2MjZfMjQz%2FMDAxNjg3Nzg0ODI4ODIw.YtQzTJBTm7Airz_ZR9pm4qe2JDAY2bXwz4AEqoZhI5Ug.8KTbThcpnpwwRQe41JCPU_Oa3snQnol9q5eASIvTaHIg.JPEG.green_sketchbook%2F%25C4%25AB%25C4%25AB%25BF%25C0%25B0%25F1%25C7%25C1.jpg&type=a340",
   },
@@ -115,8 +115,61 @@ export const data = [
 언제 누구든  벙 개최 가능^^뽐내보세요
 마구마구  뽐뽐뽐!!!`,
     category: "자전거",
-    area: "서울 노원구",
+    area: "노원구",
     photo:
       "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MjZfMzkg%2FMDAxNjU4ODQ2NzQ2OTU4.sW3dc_QK9YO2KPQ0N3xfwhVt9FhJvJvqxXR0jRfCp3wg.uQaoWZwwgeIMaCubHrxL6GsipiJQCBmssAgX7lHhlREg.JPEG.so21h%2FIMG_1466.JPG&type=a340",
+  },
+  {
+    title: `🐥골프로그 GOLF:LOG⛳️`,
+    introduction: `⛳️  신입 모집! 골린이 대환영❤️
+
+🐥정원30명!! 
+
+🔥스크린 위주 모임🔥
+(필드는 추후에😘)
+
+스크린 골프장 알바하다 친해진 사람들끼리 
+골프에 진심이 되어 만든 모임!🏌️‍♂️🏌️🏌️‍♀️
+우리들의 골프 라이프를 브이로그처럼 📸
+☺️즐기고 기록하고 공유해요!
+
+광진구,성동구 수도권 20~30대 모여라!🔥
+✋여자 환영!!!!(남자도 대환영)🙇
+🙌초보 대대환영!!!!😁
+(모임장도 96년생 여자 골린이에요☺️)
+
+신생모임으로 같이 성장해가실 분들 환영합니다.
+입문자부터 백돌이,백순이,싱글,골린이까지
+골프를 즐기고 싶은 분 모두 환영합니다🐥
+신입 텃세 ❌
+처음 오신분도 잘 적응하게 케어 보장🐣
+
+⛳️ 매주 정기 스크린 (평일or주말 운영)
+
+매주 스크린 번개벙🔥
+강변 구의 인근 스크린
+
+⛳️ 가입 조건
+
+- 90~04(빠른년생❌)
+- 예외있으니 모임장or운영진에게 문의
+- 가입 후 1시간 내 자소서 작성 필수
+- 한 달 내 정기모임 or 벙 1회 참여 필수
+- 과한 레슨 ❌ 
+- 영업 금지 ❌
+- 이성 목적 ❌
+- 골린이 환영 ❤️
+- 본인클럽 없어도 가능 🔥
+
+⚠️ 강퇴기준
+
+- 자소서 미 작성 및 삭제
+- 자소서 삭제시 탈퇴 부탁드려요
+- 미참여/유령회원
+- 불편한 언행`,
+    category: "골프",
+    area: "광진구",
+    photo:
+      "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F1a%2F44%2F54%2F1a44541a2639d359b7fc7409e48058d2.jpg&type=a340",
   },
 ];

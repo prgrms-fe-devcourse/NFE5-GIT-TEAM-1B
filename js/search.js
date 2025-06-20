@@ -83,8 +83,8 @@ function displayPlaces(places) {
         // 검색된 장소의 위치를 기준으로 지도 범위를 재설정하기위해 LatLngBounds 객체에 좌표 추가
         bounds.extend(placePosition);
 
-        // 마커와 검색결과 항목에 mouseover 했을때 해당 장소에 인포윈도우에 장소명 표시
-        // mouseout 했을 때는 인포윈도우 닫기
+        // 마커와 검색결과 항목에 mouseover 했을때 해당 장소에 툴팁에 장소명 표시
+        // mouseout 했을 때는 툴팁 닫기
         (function(marker, title) {
             kakao.maps.event.addListener(marker, 'mouseover', function() {
                 displayCustomOverlay(marker, title)
@@ -94,16 +94,70 @@ function displayPlaces(places) {
                 if (customOverlay) customOverlay.setMap(null);
             });
 
-            itemEl.onmouseover =  function () {
-                displayCustomOverlay(marker, title);
-                //해당 위치를 화면 정가운데 오도록 지도 이동
+            // 마커 클릭 시 리스트 항목 강조 + 해당 리스트로 스크롤
+            kakao.maps.event.addListener(marker, 'click', function () {
+                // 기존 강조된 항목 해제
+                document.querySelectorAll('.item.selected').forEach(el => {
+                el.classList.remove('selected');
+                el.style.border = '';
+                });
+
+                // 현재 항목 강조
+                itemEl.classList.add('selected');
+                itemEl.style.border = '2px solid orange';
+
+                // 지도 이동
                 map.panTo(marker.getPosition());
-            };
+
+                // 리스트 스크롤 중앙 정렬
+                itemEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+
+            // 마우스 올렸을때 해당 가게로 지도 이동
+            // itemEl.onmouseover =  function () {
+            //     displayCustomOverlay(marker, title);
+            //     //해당 위치를 화면 정가운데 오도록 지도 이동
+            //     // map.panTo(marker.getPosition());
+            // };
 
             itemEl.onmouseout =  function () {
                 if (customOverlay) customOverlay.setMap(null);
             };
         })(marker, places[i].place_name);
+
+        // 리스트 클릭했을 때 지도 이동 + 주황 테두리
+        itemEl.onclick = function () {
+        // 이미 선택된 항목인지 확인
+            const isSelected = itemEl.classList.contains('selected');
+
+            if (isSelected) {
+                // 이미 선택된 항목이면 상세 페이지 이동
+                const placeName = places[i].place_name;
+                const categoryName = places[i].category_name;
+                const address = places[i].road_address_name || places[i].address_name;
+
+                const params = new URLSearchParams({
+                place_name: placeName,
+                category_name: categoryName,
+                address: address
+                });
+
+                window.location.href = `../pages/detail.html?${params.toString()}`;
+            } else {
+                // 다른 항목들의 선택 상태 해제
+                document.querySelectorAll('.item.selected').forEach(el => {
+                el.classList.remove('selected');
+                el.style.border = ''; // 테두리 제거
+                });
+
+                // 이 항목 선택 처리
+                itemEl.classList.add('selected');
+                itemEl.style.border = '2px solid orange';
+
+                // 지도 이동
+                map.panTo(marker.getPosition());
+            }
+        };
 
         fragment.appendChild(itemEl);
     }
@@ -294,11 +348,10 @@ function displayCustomOverlay(marker, title) {
   customOverlay.setMap(map);
 }
 
-// 쿼리스트링 받으면 내 위치로 이동 눌러진 효과
-// window.onload = function () {
-//   const urlParams = new URLSearchParams(window.location.search);
-//   if (urlParams.get('mylocation') === '1') {
-//     document.getElementById('myLocationBtn').click();
-//   }
-// };
 
+window.addEventListener('load', function () {
+  getUserLocation(function () {
+    map.panTo(userLocation); // 지도 중심 이동
+    displayMyLocation(userLocation); // 내 위치에 빨간 원 표시
+  });
+});

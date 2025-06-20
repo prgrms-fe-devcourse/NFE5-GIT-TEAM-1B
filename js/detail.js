@@ -25,6 +25,7 @@ const reservationData = {
   location: document.querySelector(".info-card p").textContent,
   selectedDate: new Date().toISOString().split("T")[0],
   selectedTime: "",
+  selectedTimeRange: "",
   people: 1,
   totalPrice: 30000,
 };
@@ -68,7 +69,10 @@ function setupEventListeners() {
         btn.classList.remove("selected");
       });
       this.classList.add("selected");
-      reservationData.selectedTime = this.textContent;
+      const startTime = this.textContent;
+      const endTime = getEndTime(startTime);
+      reservationData.selectedTime = startTime;
+      reservationData.selectedTimeRange = `${startTime} ~ ${endTime}`;
     });
   });
 
@@ -94,7 +98,7 @@ function setupEventListeners() {
         facilityName: reservationData.facilityName,
         location: reservationData.location,
         date: reservationData.selectedDate,
-        time: reservationData.selectedTime,
+        time: reservationData.selectedTimeRange,
         people: reservationData.people,
         totalPrice: reservationData.totalPrice,
       });
@@ -112,8 +116,10 @@ document.addEventListener("DOMContentLoaded", function () {
   updateFacilityInfo(placeName, categoryName, address);
   initializeMap(address, placeName);
   updateSwiperImages(categoryName);
-
   initializeSwiper();
+
+  displayTodayDate();
+  setupEventListeners();
 
   initReviewForm();
 });
@@ -339,4 +345,11 @@ function initializeSwiper() {
       prevEl: ".swiper-button-prev",
     },
   });
+}
+
+// 종료 시간 계산 함수
+function getEndTime(startTime) {
+  const [hours] = startTime.split(":");
+  const endHour = (parseInt(hours) + 1).toString().padStart(2, "0");
+  return `${endHour}:00`;
 }

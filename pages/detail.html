@@ -11,6 +11,10 @@
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9aec53f5d3070b2bdd8f3ab6e47c9854&libraries=services"
+    ></script>
   </head>
   <body>
     <header class="header">
@@ -144,7 +148,7 @@
         <div class="info-card">
           <h3>📍 위치</h3>
           <p>서울특별시 강남구 범범 체육관</p>
-          <div class="map-container"></div>
+          <div id="map" class="map-container"></div>
         </div>
         <div class="info-card">
           <h3>

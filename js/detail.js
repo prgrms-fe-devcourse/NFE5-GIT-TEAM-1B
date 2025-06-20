@@ -111,8 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateFacilityInfo(placeName, categoryName, address);
 
-  displayTodayDate();
-  setupEventListeners();
+  initializeMap(address, placeName);
 
   // Swiper 초기화
   const swiper = new Swiper(".swiper", {
@@ -129,6 +128,38 @@ document.addEventListener("DOMContentLoaded", function () {
   // 리뷰 폼 초기화
   initReviewForm();
 });
+
+function initializeMap(address, placeName) {
+  const mapContainer = document.getElementById("map");
+  if (!mapContainer) return;
+
+  const mapOption = {
+    center: new kakao.maps.LatLng(37.566826, 126.9786567), // 기본 중심좌표
+    level: 3, // 지도 확대 레벨
+  };
+
+  const map = new kakao.maps.Map(mapContainer, mapOption);
+
+  const geocoder = new kakao.maps.services.Geocoder();
+
+  geocoder.addressSearch(address, function (result, status) {
+    if (status === kakao.maps.services.Status.OK) {
+      const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+      const marker = new kakao.maps.Marker({
+        map: map,
+        position: coords,
+      });
+
+      const infowindow = new kakao.maps.InfoWindow({
+        content: `<div style="padding:5px;font-size:12px;">${placeName}</div>`,
+      });
+      infowindow.open(map, marker);
+
+      map.setCenter(coords);
+    }
+  });
+}
 
 function updateFacilityInfo(placeName, categoryName, address) {
   // 시설 이름

@@ -10,19 +10,104 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9aec53f5d3070b2bdd8f3ab6e47c9854&libraries=services"
+    ></script>
   </head>
   <body>
+    <header class="header">
+      <div class="header-inner">
+        <h1 class="logo">
+          <a href="../index.html">
+            <svg
+              width="61"
+              height="55"
+              viewBox="0 0 61 55"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="54.3406"
+                y="23.6113"
+                width="3.31707"
+                height="10.1463"
+                rx="1.65854"
+                fill="#FF8000"
+              />
+              <rect
+                width="3.31707"
+                height="10.1463"
+                rx="1.65854"
+                transform="matrix(-1 0 0 1 7.21899 23.6113)"
+                fill="#FF7F00"
+              />
+              <path
+                d="M30.78 0C38.5655 0.000333626 44.8775 6.33308 44.8777 14.1455C44.8776 17.5849 43.6527 20.7376 41.6189 23.1895C39.9772 25.6812 37.8067 28.9594 35.906 31.7773C34.8102 33.4019 33.8024 34.8771 33.0398 35.9619C32.659 36.5036 32.3359 36.9523 32.0925 37.2744C31.9715 37.4346 31.8663 37.5693 31.781 37.6699C31.7387 37.7198 31.6967 37.7677 31.657 37.8076C31.6434 37.8213 31.6191 37.8449 31.5876 37.8711L31.4734 37.9492C30.8257 38.2903 30.1808 38.1048 29.8962 37.9482V37.9492C29.8951 37.9486 29.8935 37.947 29.8923 37.9463C29.8884 37.9441 29.8835 37.9426 29.8796 37.9404V37.9385C29.8054 37.8962 29.7458 37.8433 29.7146 37.8135C29.6723 37.7729 29.6279 37.7248 29.5837 37.6748C29.4947 37.5739 29.3862 37.4403 29.2644 37.2832C29.0196 36.9675 28.6999 36.5311 28.3259 36.0068C27.5763 34.9561 26.5948 33.5326 25.532 31.9678C23.4054 28.8368 20.9415 25.1262 19.322 22.665L19.282 22.6035L19.2615 22.5332L19.1404 22.1289C17.5898 19.8568 16.6825 17.1072 16.6824 14.1455C16.6826 6.33288 22.9943 0 30.78 0ZM30.78 6.14648C26.4844 6.14648 23.0017 9.64164 23.0017 13.9521C23.0019 18.2625 26.4845 21.7568 30.78 21.7568C35.0755 21.7568 38.5581 18.2624 38.5583 13.9521C38.5583 9.64167 35.0756 6.14654 30.78 6.14648Z"
+                fill="#218BE7"
+              />
+              <rect
+                x="13.365"
+                y="25.9531"
+                width="34.2439"
+                height="4.29268"
+                fill="#228BEA"
+              />
+              <rect
+                width="34.2439"
+                height="4.29268"
+                transform="matrix(-1 0 0 1 48.1946 25.9531)"
+                fill="#228BEA"
+              />
+              <rect
+                x="48.4871"
+                y="19.3193"
+                width="5.56097"
+                height="17.2683"
+                rx="2.78049"
+                fill="#FF8000"
+              />
+              <rect
+                width="5.56097"
+                height="17.2683"
+                rx="2.78049"
+                transform="matrix(-1 0 0 1 13.0725 19.3193)"
+                fill="#FF7F00"
+              />
+              <path
+                d="M57.172 40.395V42.4724H54.4403C54.6285 43.9036 55.5363 45.3594 57.859 46.0382L56.5177 48.0829C54.8902 47.6167 53.7942 46.6598 53.1318 45.4494C52.4366 46.7743 51.2834 47.8294 49.5495 48.3773L48.2083 46.3C50.58 45.5884 51.5288 44.01 51.7251 42.4724H48.8953V40.395H57.172ZM60.9996 39.6426V48.3119H58.3661V39.6426H60.9996ZM60.9996 48.8844V54.6094H50.6782V48.8844H60.9996ZM53.2626 50.929V52.5157H58.4315V50.929H53.2626Z"
+                fill="#00514D"
+              />
+              <path
+                d="M37.8474 49.048C37.8474 50.1766 38.24 51.3298 39.3196 52.1395C40.4073 51.2971 40.8408 50.1357 40.8572 49.048V48.7208H43.4253V49.048C43.4253 50.6346 44.0632 52.025 46.1242 52.6302L44.8647 54.5113C43.4661 54.0615 42.5747 53.2272 42.0512 52.1395C41.5442 53.2436 40.6854 54.1678 39.3687 54.6585C37.9865 54.176 37.1195 53.2763 36.6207 52.1886C36.0809 53.2354 35.2058 54.0615 33.8726 54.5113L32.5968 52.6302C34.6251 51.9596 35.2794 50.5201 35.2794 49.048V48.7208H37.8474V49.048ZM44.8483 39.6426V48.1156H42.2148V39.6426H44.8483ZM36.4898 40.3296C38.8779 40.3296 40.7263 41.8672 40.7263 44.0427C40.7263 46.1527 38.8779 47.7067 36.4898 47.7067C34.0853 47.7067 32.2369 46.1527 32.2533 44.0427C32.2369 41.8672 34.0853 40.3296 36.4898 40.3296ZM36.4898 42.5214C35.492 42.5214 34.805 43.0285 34.805 44.0427C34.805 45.0077 35.492 45.5475 36.4898 45.5312C37.4385 45.5475 38.1255 45.0077 38.1255 44.0427C38.1255 43.0285 37.4385 42.5214 36.4898 42.5214Z"
+                fill="#218BE7"
+              />
+              <path
+                d="M28.7135 39.6113V54.7908H26.0636V39.6113H28.7135ZM24.2643 40.8872V42.9973H19.4389V49.0821C21.9661 49.074 23.4792 49.0167 25.1639 48.7059L25.3766 50.8324C23.4792 51.2249 21.5817 51.2904 18.1794 51.274H16.8218V40.8872H24.2643Z"
+                fill="#228BEA"
+              />
+              <path
+                d="M4.02387 40.6255C6.04399 40.6091 7.58156 42.2367 7.9496 44.8783H10.0924V39.6113H12.6932V54.7908H10.0924V46.9721H7.98232C7.70424 49.8264 6.11759 51.5684 4.02387 51.5684C1.68479 51.5684 0 49.4584 0 46.0724C0 42.7356 1.68479 40.6091 4.02387 40.6255ZM4.02387 42.9973C3.12423 42.9809 2.50265 43.9787 2.51901 46.0724C2.50265 48.1989 3.12423 49.1639 4.02387 49.1639C4.93988 49.1639 5.52873 48.1989 5.52873 46.0724C5.52873 43.9787 4.93988 42.9809 4.02387 42.9973Z"
+                fill="#228BEA"
+              />
+              <circle cx="30.8283" cy="13.9533" r="3.80487" fill="#218BE7" />
+            </svg>
+          </a>
+        </h1>
+        <nav>
+        <ul class="nav">
+          <li><a href="../pages/community.html">모임</a></li>
+          <li><a href="../pages/search.html">시설 찾기</a></li>
+        </ul>
+      </nav>
+      </div>
+    </header>
     <main class="facility-detail">
       <!-- 기본 정보 -->
       <section class="facility-header">
         <h1 class="facility-name">스포츠 복합 센터</h1>
-        <div class="rating-review">
-          <div class="stars">
-            <span class="star-rating">4.5</span>
-            <div class="star-icons">★★★★☆</div>
-          </div>
-          <span class="review-count">(리뷰 123개)</span>
-        </div>
+
       </section>
 
       <!-- 이미지 슬라이더 -->
@@ -58,85 +143,104 @@
         <div class="swiper-button-prev"></div>
       </section>
 
-      <!-- 가격 정보 -->
-      <section class="pricing-section">
-        <h2>이용 요금</h2>
-        <div class="price-info">
-          <div class="price-row">
-            <span>시간당</span>
-            <span class="price">30,000원</span>
-          </div>
-          <p class="price-notice">* 평일 주간 기준</p>
-        </div>
-      </section>
-
       <!-- 시설 정보 -->
       <section class="facility-info-grid">
         <div class="info-card">
           <h3>📍 위치</h3>
           <p>서울특별시 강남구 범범 체육관</p>
-          <div class="map-container"></div>
+          <div id="map" class="map-container"></div>
         </div>
         <div class="info-card">
           <h3>
-            <i class="fas fa-clock"></i>
+            <i class="fa-solid fa-clock"></i>
             운영 시간
           </h3>
           <div class="operating-hours">
             <div class="time-row">
               <div class="day">
-                <i class="fas fa-sun"></i>
+                <i class="fa-solid fa-sun"></i>
                 평일
               </div>
               <div class="hours">06:00 - 22:00</div>
             </div>
             <div class="time-row">
               <div class="day">
-                <i class="fas fa-moon"></i>
+                <i class="fa-solid fa-cloud-sun"></i>
                 토요일
               </div>
               <div class="hours">08:00 - 20:00</div>
             </div>
             <div class="time-row">
               <div class="day">
-                <i class="fas fa-star"></i>
+                <i class="fa-solid fa-cloud"></i>
                 일요일/공휴일
               </div>
               <div class="hours">09:00 - 18:00</div>
             </div>
           </div>
+          <div class="facility-fees">
+            <h3><i class="fa-solid fa-coins"></i> 이용 요금</h3>
+            <div class="fee-row">
+              <div class="fee-label">
+                <i class="fa-regular fa-clock"></i>
+                1시간
+              </div>
+              <span class="fee-amount">30,000원</span>
+            </div>
+            <div class="fee-row">
+              <div class="fee-label">
+                <i class="fa-regular fa-clock"></i>
+                2시간
+              </div>
+              <span class="fee-amount">50,000원</span>
+            </div>
+          </div>
         </div>
         <div class="info-card">
           <h3>
-            <i class="fas fa-concierge-bell"></i>
+            <i class="fa-solid fa-star"></i>
             편의시설
           </h3>
           <div class="amenities">
             <div class="amenity-item">
-              <i class="fas fa-shower"></i>
+              <i class="fa-solid fa-shower"></i>
               <div class="amenity-info">
                 <div class="amenity-name">샤워실</div>
                 <div class="amenity-status">이용가능</div>
               </div>
             </div>
             <div class="amenity-item">
-              <i class="fas fa-tshirt"></i>
+              <i class="fa-solid fa-shirt"></i>
               <div class="amenity-info">
                 <div class="amenity-name">운동복 대여</div>
                 <div class="amenity-status">이용가능</div>
               </div>
             </div>
             <div class="amenity-item">
-              <i class="fas fa-parking"></i>
+              <i class="fa-solid fa-square-parking"></i>
               <div class="amenity-info">
                 <div class="amenity-name">주차장</div>
                 <div class="amenity-status">2시간 무료</div>
               </div>
             </div>
             <div class="amenity-item">
-              <i class="fas fa-lock"></i>
+              <i class="fa-solid fa-lock"></i>
               <div class="amenity-info">
                 <div class="amenity-name">개인 락커</div>
+                <div class="amenity-status">이용가능</div>
+              </div>
+            </div>
+            <div class="amenity-item">
+              <i class="fa-solid fa-wifi"></i>
+              <div class="amenity-info">
+                <div class="amenity-name">무료 와이파이</div>
+                <div class="amenity-status">이용가능</div>
+              </div>
+            </div>
+            <div class="amenity-item">
+              <i class="fa-solid fa-bottle-water"></i>
+              <div class="amenity-info">
+                <div class="amenity-name">정수기</div>
                 <div class="amenity-status">이용가능</div>
               </div>
             </div>
@@ -146,7 +250,7 @@
 
       <!-- 예약 섹션 -->
       <section class="reservation-section">
-        <h2>예약하기</h2>
+
         <div class="reservation-container">
           <div class="reservation-date">
             <h4>예약 날짜</h4>
@@ -195,14 +299,60 @@
 
       <!-- 리뷰 섹션 -->
       <section class="reviews-section">
-        <h2>이용 후기</h2>
-        <div class="review-summary">
-          <div class="average-rating">
-            <span class="big-rating">4.5</span>
-            <div class="star-icons">★★★★☆</div>
+        <div class="review-header">
+          <h2>이용 후기</h2>
+          <div class="review-summary">
+            <div class="average-rating">
+              <span class="big-rating">4.5</span>
+              <div class="star-icons">★★★★☆</div>
+              <span class="total-reviews">(총 123개)</span>
+            </div>
           </div>
-          <div class="review-preview">
-            <p class="review-text">"시설이 깨끗하고 직원분들이 친절해요!"</p>
+        </div>
+
+        <!-- 리뷰 작성 폼 -->
+        <div class="review-form">
+          <h3>후기 작성</h3>
+          <form id="reviewForm">
+            <div class="review-input">
+              <label>후기 내용</label>
+              <textarea placeholder="시설 이용 후기를 작성해주세요." maxlength="200"></textarea>
+              <span class="char-count">0/200</span>
+            </div>
+            <button type="submit" class="submit-review">작성 완료</button>
+          </form>
+        </div>
+
+        <!-- 리뷰 목록 -->
+        <div class="review-list">
+          <div class="review-item">
+            <div class="review-info">
+              <div class="reviewer">
+                <span class="reviewer-name">김**</span>
+                <span class="review-date">2024.03.20</span>
+              </div>
+            </div>
+            <p class="review-content">시설이 깨끗하고 직원분들이 친절해요! 운동하기 좋은 환경이에요.</p>
+          </div>
+
+          <div class="review-item">
+            <div class="review-info">
+              <div class="reviewer">
+                <span class="reviewer-name">이**</span>
+                <span class="review-date">2024.03.19</span>
+              </div>
+            </div>
+            <p class="review-content">전반적으로 만족스러웠습니다. 다음에도 이용할 것 같아요.</p>
+          </div>
+
+          <div class="review-item">
+            <div class="review-info">
+              <div class="reviewer">
+                <span class="reviewer-name">박**</span>
+                <span class="review-date">2024.03.18</span>
+              </div>
+            </div>
+            <p class="review-content">샤워실도 깨끗하고 좋았어요. 락커도 넉넉해서 편했습니다.</p>
           </div>
         </div>
       </section>

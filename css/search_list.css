@@ -11,6 +11,16 @@ body {
   color: #1e1e1e;
 }
 
+button {
+  width: auto;
+  overflow: visible;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
 
 /* 헤더 */
 .header {
@@ -55,7 +65,7 @@ body {
   font-size: 16px;
   font-weight: 700;
   border-radius: 12px;
-  cursor: pointer;
+  cursor: default;
 }
 
 .search-input-wrap {
@@ -66,6 +76,10 @@ body {
   flex: 1;
   display: flex;
   align-items: center;
+}
+
+.search-input-wrap:has(input:focus) {
+  border: 1px solid #ff8000;
 }
 
 .search-input-wrap input {
@@ -94,6 +108,12 @@ body {
 
 
 /* 결과 리스트 */
+.result-item a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
 .result-section {
   max-width: 700px;
   margin: 0 auto;

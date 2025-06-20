@@ -9,7 +9,6 @@
     box-sizing: border-box;
     background: #fff;
     z-index: 1000;
-    border-bottom: 1px solid #eee;
 }
 
 .header-inner {
@@ -100,10 +99,10 @@
 #menu_wrap .option button {
   margin-left: 5px;
 }
-#placesList li {
+#places_list li {
   list-style: none;
 }
-#placesList .item {
+#places_list .item {
   position: relative;
   border: 2px solid transparent;
   border-bottom: 1px solid #c0c0c0;
@@ -112,31 +111,31 @@
   cursor: pointer;
   min-height: 65px;
 }
-#placesList .item span {
+#places_list .item span {
   display: block;
   margin-top: 4px;
 }
-#placesList .item h5,
-#placesList .item .info {
+#places_list .item h5,
+#places_list .item .info {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
-#placesList .item .info {
+#places_list .item .info {
   padding: 10px 0 10px 55px;
 }
-#placesList .info .gray {
+#places_list .info .gray {
   color: #8a8a8a;
 }
-#placesList .info .jibun {
+#places_list .info .jibun {
   padding-left: 26px;
   background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png)
     no-repeat;
 }
-#placesList .info .tel {
+#places_list .info .tel {
   color: rgb(82, 112, 124);
 }
-#placesList .item .markerbg {
+#places_list .item .markerbg {
   float: left;
   position: absolute;
   width: 36px;
@@ -145,49 +144,49 @@
   background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png)
     no-repeat;
 }
-#placesList .item .marker_1 {
+#places_list .item .marker_1 {
   background-position: 0 -10px;
 }
-#placesList .item .marker_2 {
+#places_list .item .marker_2 {
   background-position: 0 -56px;
 }
-#placesList .item .marker_3 {
+#places_list .item .marker_3 {
   background-position: 0 -102px;
 }
-#placesList .item .marker_4 {
+#places_list .item .marker_4 {
   background-position: 0 -148px;
 }
-#placesList .item .marker_5 {
+#places_list .item .marker_5 {
   background-position: 0 -194px;
 }
-#placesList .item .marker_6 {
+#places_list .item .marker_6 {
   background-position: 0 -240px;
 }
-#placesList .item .marker_7 {
+#places_list .item .marker_7 {
   background-position: 0 -286px;
 }
-#placesList .item .marker_8 {
+#places_list .item .marker_8 {
   background-position: 0 -332px;
 }
-#placesList .item .marker_9 {
+#places_list .item .marker_9 {
   background-position: 0 -378px;
 }
-#placesList .item .marker_10 {
+#places_list .item .marker_10 {
   background-position: 0 -423px;
 }
-#placesList .item .marker_11 {
+#places_list .item .marker_11 {
   background-position: 0 -470px;
 }
-#placesList .item .marker_12 {
+#places_list .item .marker_12 {
   background-position: 0 -516px;
 }
-#placesList .item .marker_13 {
+#places_list .item .marker_13 {
   background-position: 0 -562px;
 }
-#placesList .item .marker_14 {
+#places_list .item .marker_14 {
   background-position: 0 -608px;
 }
-#placesList .item .marker_15 {
+#places_list .item .marker_15 {
   background-position: 0 -654px;
 }
 #pagination {
@@ -211,7 +210,7 @@
 }
 
 /* 커스텀 오버레이 */
-.custom-overlay {
+.custom_overlay {
   background: white;
   /* border: 1px solid rgba(0,0,0,0.3); */
   border: 2px solid #ff8000;
@@ -223,12 +222,18 @@
   pointer-events: none;
 }
 
-.custom-overlay-content {
+.custom_overlay_content {
   font-weight: bold;
   color: #222;
 }
 
 /* map 커스텀 설정 */
+#map_container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
 #map {
   width: 100%;
   /* max-width: 1440px; */
@@ -276,12 +281,23 @@
 #menu_wrap::-webkit-scrollbar-thumb:hover {
   background-color: #ff8000;
 }
+#my_location_btn {
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  z-index: 10;
+}
 
-#myLocationBtn {
-  position: fixed;
+#my_location_btn {
+  /* position: fixed;
   bottom: 45px;
   left: 10px;
-  z-index: 100;
+  z-index: 100; */
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  z-index: 10;
+
   padding: 10px 15px;
   background-color: #ff962c;
   color: white;
@@ -293,7 +309,7 @@
   transition: background-color 0.3s;
 }
 
-#myLocationBtn:hover {
+#my_location_btn:hover {
   background-color: #ff8000;
 }
 
@@ -319,4 +335,45 @@
 
 .item.selected {
   border: 2px solid orange;
+}
+
+.map_container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+.map_wrap {
+  position: relative; 
+  width: 100%;
+  height: 91.1vh;
+}
+
+
+#map {
+  width: 100%;
+  height: 91.1vh;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+#menu_wrap {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  max-height: 500px;
+  width: 250px;
+  margin: 0;
+  padding: 5px;
+  background: #fff;
+  z-index: 10;
+}
+
+#my_location_btn {
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  z-index: 10;
 }

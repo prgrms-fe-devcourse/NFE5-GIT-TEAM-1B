@@ -62,7 +62,7 @@ function placesSearchCB(data, status, pagination) {
 
 // 검색 결과 목록과 마커를 표출하는 함수
 function displayPlaces(places) {
-    let listEl = document.querySelector('#placesList');
+    let listEl = document.querySelector('#places_list');
     let menuEl = document.querySelector('#menu_wrap');
     let fragment = document.createDocumentFragment();
     let bounds = new kakao.maps.LatLngBounds();
@@ -268,7 +268,7 @@ function removeAllChildNodes(el) {
 
 
 // 내위치로 지도 이동
-document.querySelector('#myLocationBtn').addEventListener('click', function () {
+document.querySelector('#my_location_btn').addEventListener('click', function () {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             const lat = position.coords.latitude;
@@ -331,8 +331,8 @@ function displayCustomOverlay(marker, title) {
   if (customOverlay) customOverlay.setMap(null);
 
   const content = `
-    <div class="custom-overlay">
-      <div class="custom-overlay-content">
+    <div class="custom_overlay">
+      <div class="custom_overlay_content">
         ${title}
       </div>
     </div>

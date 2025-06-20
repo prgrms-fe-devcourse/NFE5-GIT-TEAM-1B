@@ -2,7 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+ 
 }
+
 
 button {
   background-color: transparent;
@@ -120,8 +122,7 @@ img {
 .header-inner {
   display: flex;
   align-items: center;
-
-
+  
   .nav{
     display:flex;
     gap: 48px;
@@ -146,7 +147,7 @@ img {
   width: 50%;
   display: flex;
   flex-direction: column;
-
+background-color: #fff;
   .card {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 80px;
@@ -163,12 +164,19 @@ img {
     flex-direction: column;
     gap: 8px;
   }
+
   .radio-wrap {
     border: 0;
     display: flex;
     gap: 8px;
   }
+
+  .way-to-payment input,
+  .way-to-payment label{
+    cursor: pointer;
+  }
 }
+
 
 .input-bar {
   border: 0;
@@ -193,12 +201,17 @@ img {
   .radio-wrap {
     color: #888;
   }
+
+  .radio-wrap input,
+  .radio-wrap label{
+    cursor: pointer;
+  }
 }
 
 .coupon {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 
   .apply-coupon {
     padding: 10px;
@@ -208,6 +221,11 @@ img {
     width: 100px;
     cursor: pointer;
     transition: all 0.3s;
+  }
+
+
+  .applied-coupon-list{
+    padding-bottom: 25px;
   }
 
   .apply-coupon:hover {
@@ -354,7 +372,7 @@ img {
 
 .bills {
   background-color: #f9f9f9;
-  margin: 50px auto;
+  margin: 40px auto;
   border-top: 3px solid #222;
   border-bottom: 3px solid #222;
   display: flex;
@@ -439,8 +457,8 @@ img {
     background-color: #ff8000;
     color: #fff;
     border-radius: 8px;
-    width: 663px;
-    height: 106px;
+    width: 550px;
+    height: 96px;
     font-size: 48px;
     font-weight: 600;
     display: flex;

@@ -23,3 +23,7 @@
 - **Kakao Maps JavaScript API**
 
 ---
+
+## 🚀 실행 방법
+
+- `npm run dev`로 실행합니다.

@@ -61,7 +61,10 @@ document.querySelector('.search-input-wrap').addEventListener('submit', function
 // communityData.js 사진 가져와서 뿌리기
 const cardArea = document.querySelector('.community-cards');
 
-cardArea.innerHTML = data.map(item => `
+const randomFour = data.length <= 4
+  ? data : data.slice().sort(() => Math.random() - 0.5).slice(0, 4);
+
+cardArea.innerHTML = randomFour.map(item => `
   <a href="#" class="card">
     <img src="${item.photo}" alt="${item.title}">
   </a>

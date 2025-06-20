@@ -111,32 +111,33 @@
     </header>
 
     <!-- api 맵 -->
-    <div class="map_wrap">
-      <div id="map"></div>
-
-      <!-- api 리스트 -->
-      <div id="menu_wrap" class="bg_white">
-        <div class="option">
-          <div>
-            <form onsubmit="searchPlaces(); return false;">
-              <!-- 키워드  -->
-              <input
-                type="text"
-                value=""
-                id="keyword"
-                size="15"
-                placeholder="키워드 입력"
-              />
-              <button type="submit" id="search_btn">검색하기</button>
-            </form>
+    <div id="map_container">
+      <div class="map_wrap">
+        <div id="map"></div>
+        <div id="menu_wrap" class="bg_white">
+          <div class="option">
+            <div>
+              <form onsubmit="searchPlaces(); return false;">
+                <!-- 키워드  -->
+                <input
+                  type="text"
+                  value=""
+                  id="keyword"
+                  size="15"
+                  placeholder="키워드 입력"
+                />
+                <button type="submit" id="search_btn">검색하기</button>
+              </form>
+            </div>
           </div>
+          <hr />
+          <ul id="places_list"></ul>
+          <div id="pagination"></div>
         </div>
-        <hr />
-        <ul id="placesList"></ul>
-        <div id="pagination"></div>
+        <button id="my_location_btn">내 위치로 이동</button>
       </div>
     </div>
 
-    <button id="myLocationBtn">내 위치로 이동</button>
+
   </body>
 </html>

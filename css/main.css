@@ -24,17 +24,50 @@ button {
 
 /* 헤더 */
 .header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 80px;
   padding: 12px;
   box-sizing: border-box;
+  background: #fff;
+  z-index: 1000;
 }
+
 .header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  .hamburger-btn {
-    position: relative;
-    cursor: pointer;
-  }
+  align-items: center;
+}
+
+.header .logo {
+  margin: 0;
+}
+
+.header .logo a {
+  display: block;
+}
+
+.header .nav {
+  display: flex;
+  gap: 48px;
+  margin: 0;
+  padding-left: 48px;
+  list-style: none;
+}
+
+.header .nav li a {
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header .nav li a:hover {
+  color: #ff8000;
 }
 
 

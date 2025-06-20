@@ -103,8 +103,14 @@ function setupEventListeners() {
     });
 }
 
-// 페이지 로드 시 실행
 document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const placeName = decodeURIComponent(urlParams.get("place_name") || "");
+  const categoryName = decodeURIComponent(urlParams.get("category_name") || "");
+  const address = decodeURIComponent(urlParams.get("address") || "");
+
+  updateFacilityInfo(placeName, categoryName, address);
+
   displayTodayDate();
   setupEventListeners();
 
@@ -123,6 +129,58 @@ document.addEventListener("DOMContentLoaded", function () {
   // 리뷰 폼 초기화
   initReviewForm();
 });
+
+function updateFacilityInfo(placeName, categoryName, address) {
+  // 시설 이름
+  const facilityName = document.querySelector(".facility-name");
+  if (facilityName) {
+    facilityName.textContent = placeName;
+  }
+
+  // 주소
+  const locationText = document.querySelector(
+    ".facility-info-grid .info-card p"
+  );
+  if (locationText) {
+    locationText.textContent = address;
+  }
+
+  // 카테고리에 따른 아이콘
+  const categoryIcon = getCategoryIcon(categoryName);
+  const iconContainer = document.querySelector(".facility-header");
+  if (iconContainer && categoryIcon) {
+    const existingIcon = iconContainer.querySelector(".category-icon");
+    if (existingIcon) {
+      existingIcon.remove();
+    }
+
+    const iconElement = document.createElement("i");
+    iconElement.className = `fa-solid ${categoryIcon} category-icon`;
+    iconElement.style.marginRight = "10px";
+    iconElement.style.color = "#ff8000";
+    facilityName.insertBefore(iconElement, facilityName.firstChild);
+  }
+}
+
+function getCategoryIcon(categoryName) {
+  const categoryMap = {
+    헬스: "fa-dumbbell",
+    필라테스: "fa-child",
+    크로스핏: "fa-person-running",
+    테니스: "fa-baseball",
+    수영: "fa-person-swimming",
+    배드민턴: "fa-badminton",
+    복싱: "fa-hand-fist",
+  };
+
+  for (const [key, icon] of Object.entries(categoryMap)) {
+    if (categoryName.includes(key)) {
+      return icon;
+    }
+  }
+
+  return "fa-dumbbell";
+}
 
 // 리뷰 폼 초기화
 function initReviewForm() {

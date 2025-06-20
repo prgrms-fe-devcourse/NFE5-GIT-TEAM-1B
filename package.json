@@ -1,0 +1,23 @@
+{
+  "name": "fitplace",
+  "version": "1.0.0",
+  "description": "**어디있짐**은 사용자가 현재 위치 기반으로 스포츠 관련 시설(헬스장, 체육관 등)**을 검색하고 지도 상에서 확인할 수 있도록 도와주는 웹 애플리케이션입니다.  \r **카카오 지도 API**와 **순수 HTML, CSS, JavaScript**만을 사용해 제작되었습니다.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server --host=localhost --port=5500 --no-browser"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/play3step/FitPlace.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/play3step/FitPlace/issues"
+  },
+  "homepage": "https://github.com/play3step/FitPlace#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

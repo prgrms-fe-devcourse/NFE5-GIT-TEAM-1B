@@ -110,22 +110,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const address = decodeURIComponent(urlParams.get("address") || "");
 
   updateFacilityInfo(placeName, categoryName, address);
-
   initializeMap(address, placeName);
+  updateSwiperImages(categoryName);
 
-  // Swiper 초기화
-  const swiper = new Swiper(".swiper", {
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
+  initializeSwiper();
 
-  // 리뷰 폼 초기화
   initReviewForm();
 });
 
@@ -271,4 +260,83 @@ function addNewReview(content) {
   `;
 
   reviewList.insertBefore(newReview, reviewList.firstChild);
+}
+
+// 카테고리별 이미지 매핑
+function getCategoryImages(categoryName) {
+  const imageMap = {
+    수영: [
+      "https://health.chosun.com/site/data/img_dir/2022/05/09/2022050901783_0.jpg",
+      "https://file.scourt.go.kr/crosseditor/images/000001/20230405110003809_POS5DNG0.jpg",
+    ],
+    헬스: [
+      "https://img7.yna.co.kr/photo/etc/epa/2016/08/19/PEP20160819120201034_P4.jpg",
+      "https://image.inews24.com/image_joy/202102/1613627520599_1_145206.jpg",
+    ],
+    필라테스: [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlpOGrkgeA1O7Yl6P5kQvRaD5CjJHNfggXlQ&s",
+      "https://www.ftimes.kr/news/photo/202203/17048_19617_5528.jpg",
+    ],
+    크로스핏: [
+      "https://cdn.news.hidoc.co.kr/news/photo/202006/22450_53456_0609.jpg",
+      "https://cdn.news.hidoc.co.kr/news/photo/202006/22450_53454_0609.jpg",
+    ],
+    테니스: [
+      "https://www.k-health.com/news/photo/202305/65654_71091_4726.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNKv2ZkdHuktirkvsI4QBxvYgVFK0rMkh02Q&s",
+    ],
+    배드민턴: [
+      "https://image.dongascience.com/Photo/2017/02/14878992402677.png",
+      "https://cdn.idjnews.kr/news/photo/202408/205541_207513_3652.jpg",
+    ],
+    복싱: [
+      "https://stone-i-dagym-centers.s3.ap-northeast-2.amazonaws.com/images/gyms/15a3553650e42224dc/2YC4uRtjkZGF53D6mw7vbFV3e2D6Tdhjj6Ur.Big_DSC09810.jpg",
+      "https://img7.yna.co.kr/photo/etc/epa/2016/08/19/PEP20160819120201034_P4.jpg",
+    ],
+  };
+
+  // 카테고리 이름에서 매칭되는 키워드 찾기
+  for (const [key, images] of Object.entries(imageMap)) {
+    if (categoryName.includes(key)) {
+      return images;
+    }
+  }
+
+  // 기본 이미지
+  return [
+    "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800",
+    "https://images.unsplash.com/photo-1576941089067-2de3c901e126?w=800",
+  ];
+}
+
+function updateSwiperImages(categoryName) {
+  const swiperWrapper = document.querySelector(".swiper-wrapper");
+  if (!swiperWrapper) return;
+
+  // 기존 슬라이드 제거
+  swiperWrapper.innerHTML = "";
+
+  // 카테고리에 맞는 이미지 가져오기
+  const images = getCategoryImages(categoryName);
+
+  // 이미지 슬라이드 추가
+  images.forEach((imageUrl) => {
+    const slide = document.createElement("div");
+    slide.className = "swiper-slide";
+    slide.innerHTML = `<img src="${imageUrl}" alt="시설 이미지">`;
+    swiperWrapper.appendChild(slide);
+  });
+}
+
+function initializeSwiper() {
+  return new Swiper(".swiper", {
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
 }

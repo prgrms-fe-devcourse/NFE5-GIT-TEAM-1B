@@ -55,6 +55,13 @@ button {
   align-items: center;
 }
 
+.location-box{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
 .location {
   height: 50px;
   padding: 11px 18px 11px 18px;
@@ -67,6 +74,7 @@ button {
   font-weight: 700;
   border-radius: 12px;
   cursor: default;
+   min-width: 80px
 }
 
 .search-input-wrap {

@@ -1,1 +1,8 @@
+## CSS 선택자 규칙
 
+1. Layout ( display, Position... )
+2. Box ( Margin, Padding, Border-box... )
+3. Background ( Background... )
+4. Font (Font-family, Font-Size... )
+5. Animation (keyframe, transition, transform... ) 
+6. ETC

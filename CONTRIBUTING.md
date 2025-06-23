@@ -92,3 +92,6 @@ git commit -m "feat: 유저 프로필 조회 기능 추가"
 git commit -m "fix: 로그인 실패 시 에러 메시지 출력"
 git commit -m "style: 코드 정렬 및 불필요한 공백 제거"
 git commit -m "docs: 프로젝트 소개 README에 추가"
+
+### 브랜치 관리 전략
+Git Flow

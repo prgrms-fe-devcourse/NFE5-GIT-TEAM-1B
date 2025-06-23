@@ -1,3 +1,10 @@
+## Css 클래스 규칙
+
+BEM 규칙을 따르도록합니다.
+
+Box _ Element - Modify
+예시) header_inner-animation
+
 ## CSS 선택자 규칙
 
 1. Layout ( display, Position... )
